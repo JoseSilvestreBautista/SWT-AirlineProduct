@@ -85,6 +85,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        txtdob = new com.toedter.calendar.JDateChooser();// 2) initialized txtdob
 
         jPanel1.setBackground(new java.awt.Color(51, 0, 255));
 
@@ -527,5 +528,6 @@ public class addCustomer extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtnic;
     private javax.swing.JTextField txtpassport;
     private javax.swing.JLabel txtphoto;
+    private com.toedter.calendar.JDateChooser txtdob;// 2) added missing variable txtdob
     // End of variables declaration//GEN-END:variables
 }

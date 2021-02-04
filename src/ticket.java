@@ -83,6 +83,7 @@ public class ticket extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         txttotal = new javax.swing.JLabel();
+        txtdate = new com.toedter.calendar.JDateChooser(); // 3) initialized txtdate
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select Country", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
@@ -710,5 +711,6 @@ public class ticket extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> txtsource;
     private javax.swing.JLabel txtticketno;
     private javax.swing.JLabel txttotal;
+    private com.toedter.calendar.JDateChooser txtdate;// 3) added missing variable txtdate
     // End of variables declaration//GEN-END:variables
 }
