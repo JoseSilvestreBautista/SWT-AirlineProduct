@@ -94,8 +94,8 @@ PreparedStatement pst;
     public void LoadData()
     {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-             con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline","root","password");
              pst = con.prepareStatement("SELECT * from ticket");
              ResultSet rs = pst.executeQuery();
              
