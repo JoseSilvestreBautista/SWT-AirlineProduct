@@ -3,7 +3,9 @@
 2/1/21
 Downloaded file from Canvas
 Installed IntelliJ and MySQL
-Fixed missing variables in the code to get the program to run
+JUnit used
+Added txtdob variable to serachCustomer.java, addCustomer.java, ticket.java
+Program Runs
 Designated tasks to members
 
 2/4/21
@@ -11,6 +13,7 @@ Connected the database
 Identified the Technical defects
 Completed the software inspection
 Identified Software requirements
+Designated tasks to members
 
 2/8/21
 Put all documents together for Deliverable 1
