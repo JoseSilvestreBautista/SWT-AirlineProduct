@@ -8,6 +8,8 @@ Added txtdob variable to serachCustomer.java, addCustomer.java, ticket.java
 Program Runs
 Designated tasks to members
 
+![meeting1](https://github.com/JoseSilvestreBautista/SWT-AirlineProduct/blob/master/meeting1.png?raw=true)
+
 2/4/21
 Connected the database
 Identified the Technical defects
