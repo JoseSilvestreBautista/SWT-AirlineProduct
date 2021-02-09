@@ -3,6 +3,7 @@
 **2/1/21**
 * Downloaded file from Canvas
 * Installed IntelliJ and MySQL
+* Downloaded JAR files: jcalendar, jgoodies-common, jgoodies-looks, junit, mysql-connector
 * JUnit used
 * Added txtdob variable to serachCustomer.java, addCustomer.java, ticket.java
 * Program Runs
