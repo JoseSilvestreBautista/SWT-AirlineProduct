@@ -11,3 +11,8 @@ Connected the database
 Identified the Technical defects
 Completed the software inspection
 Identified Software requirements
+
+2/8/21
+Put all documents together for Deliverable 1
+Reviewed all material
+Submit project
