@@ -17,7 +17,11 @@ Completed the software inspection
 Identified Software requirements
 Designated tasks to members
 
+![meeting2](https://github.com/JoseSilvestreBautista/SWT-AirlineProduct/blob/master/meeting2.png?raw=true)
+
 2/8/21
 Put all documents together for Deliverable 1
 Reviewed all material
 Submit project
+
+![meeting3](https://github.com/JoseSilvestreBautista/SWT-AirlineProduct/blob/master/meeting3.png?raw=true)
