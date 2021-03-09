@@ -596,7 +596,7 @@ public class ticket extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void txtseatsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_txtseatsStateChanged
+    public void txtseatsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_txtseatsStateChanged
         // TODO add your handling code here:
         
         int price = Integer.parseInt(txtprice.getText());
@@ -608,20 +608,6 @@ public class ticket extends javax.swing.JInternalFrame {
         
         
         
-    }//GEN-LAST:event_txtseatsStateChanged
-
-    public String txtseatsStateChangedTest(String amount, String seats) {//Testing Method
-        // TODO add your handling code here:
-
-        int price = Integer.parseInt(amount);
-        int qty = Integer.parseInt(seats);
-
-        int tot = price * qty;
-
-        txttotal.setText(String.valueOf(tot));
-        return  String.valueOf(tot);
-
-
     }//GEN-LAST:event_txtseatsStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -720,11 +706,11 @@ public class ticket extends javax.swing.JInternalFrame {
     private javax.swing.JLabel txtfirstname;
     private javax.swing.JLabel txtlastname;
     private javax.swing.JLabel txtpassport;
-    private javax.swing.JTextField txtprice;
-    private javax.swing.JSpinner txtseats;
+    public javax.swing.JTextField txtprice;
+    public javax.swing.JSpinner txtseats;
     private javax.swing.JComboBox<String> txtsource;
     private javax.swing.JLabel txtticketno;
-    private javax.swing.JLabel txttotal;
+    public javax.swing.JLabel txttotal;
     private LocalDate txtdate;// 3) added missing variable txtdate
     // End of variables declaration//GEN-END:variables
 }

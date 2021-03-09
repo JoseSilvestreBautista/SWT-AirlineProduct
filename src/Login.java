@@ -54,7 +54,11 @@ public class Login extends javax.swing.JFrame {
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                try {
+                    jButton1ActionPerformed(evt);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -121,7 +125,7 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    public boolean jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws Exception {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
         String username = txtuser.getText();
@@ -131,6 +135,7 @@ public class Login extends javax.swing.JFrame {
         if(username.isEmpty() ||  password.isEmpty())
         {
             JOptionPane.showMessageDialog(this, "UserName or Password Blank");
+            throw new Exception("UserName or Password Blank");
         }
         else
         {
@@ -150,7 +155,7 @@ public class Login extends javax.swing.JFrame {
                      Main m = new Main();
                      this.hide();
                      m.setVisible(true);
-                     
+                     return true;
                      
                      
                  }
@@ -160,8 +165,8 @@ public class Login extends javax.swing.JFrame {
                        txtuser.setText("");
                        txtpass.setText("");
                        txtuser.requestFocus();
-                       
-                     
+                     throw new Exception("UserName or Password do not Match");
+
                  }
 
 
@@ -173,6 +178,8 @@ public class Login extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
+
+            return false;
 
 
 
@@ -187,73 +194,6 @@ public class Login extends javax.swing.JFrame {
         return username.isEmpty() || password.isEmpty();
     }
 
-    public void jButton1ActionPerformedTest(String uname, String pasword) throws Exception {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-
-        String username = uname;
-        String password = pasword;
-
-
-        if(username.isEmpty() ||  password.isEmpty())
-        {
-            JOptionPane.showMessageDialog(this, "UserName or Password Blank");
-            throw new Exception("UserName or Password Blank");
-        }
-        else
-        {
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline","root","password");
-                pst = con.prepareStatement("select * from user where username = ? and password = ?");
-                pst.setString(1, username);
-                pst.setString(2, password);
-
-                ResultSet rs;
-                rs = pst.executeQuery();
-
-
-                if(rs.next())
-                {
-                    Main m = new Main();
-                    this.hide();
-                    m.setVisible(true);
-
-
-
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(this, "UserName or Password do not Match");
-                    txtuser.setText("");
-                    txtpass.setText("");
-                    txtuser.requestFocus();
-                    throw new Exception("UserName or Password do not Match");
-
-                }
-
-
-
-
-
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-
-
-
-
-        }
-
-
-
-
-
-
-
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,7 +236,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField txtpass;
-    private javax.swing.JTextField txtuser;
+    public javax.swing.JPasswordField txtpass;
+    public javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables
 }

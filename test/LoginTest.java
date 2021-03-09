@@ -1,30 +1,49 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 class LoginTest {
-  @Test
-  public void negativeTesting(){
-    Login log = new Login();
+  Login log = new Login();
 
-    Exception empty =  assertThrows(Exception.class, () ->log.jButton1ActionPerformedTest("",""));
-    assertEquals("UserName or Password Blank", empty.getMessage());
 
-    Exception noUserExistException =  assertThrows(Exception.class, () ->log.jButton1ActionPerformedTest("lee","123"));
-    assertEquals("UserName or Password do not Match", noUserExistException.getMessage());
-
+  @AfterEach
+  void cleanup(){
+    log.txtuser.setText("");
+    log.txtpass.setText("");
   }
 
   @Test
-  void inputValidation() {
-    Login log = new Login();
-    assertTrue(log.invalidEntry("", ""));
+  void Test1() {
+    log.txtuser.setText("");
+    log.txtpass.setText("");
+    Exception exception = assertThrows(Exception.class, () -> log.jButton1ActionPerformed(null));
+    assertEquals("UserName or Password Blank", exception.getMessage());
+  }
 
-    assertTrue(log.invalidEntry("john", ""));
+  @Test
+  void Test2() {
+    log.txtuser.setText("");
+    log.txtpass.setText("123");
+    Exception exception = assertThrows(Exception.class, () -> log.jButton1ActionPerformed(null));
+    assertEquals("UserName or Password Blank", exception.getMessage());
+  }
 
-    assertTrue(log.invalidEntry("", "123"));
 
-    assertFalse(log.invalidEntry("john", "123"));
+  @Test
+  void Test3() {
+    log.txtuser.setText("john");
+    log.txtpass.setText("");
+    Exception exception = assertThrows(Exception.class, () -> log.jButton1ActionPerformed(null));
+    assertEquals("UserName or Password Blank", exception.getMessage());
+  }
+
+
+  @Test
+  void Test4() throws Exception {
+    log.txtuser.setText("john");
+    log.txtpass.setText("123");
+    assertEquals(true, log.jButton1ActionPerformed(null));
   }
 
 }
