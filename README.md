@@ -30,7 +30,7 @@
 * Reviewing Appropriate Tools were installed
 * Resolving issues with Junit 4.6 and Junit 5
 * Used Notes from Deliverable 1 provided to help resolve Deliverable 2
-* Begin Builing Test Cases
+* Begin Building Test Cases
 
 **3/5/21**
 * Review Test Cases 
