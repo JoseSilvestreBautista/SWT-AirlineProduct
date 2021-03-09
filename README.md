@@ -30,6 +30,7 @@
 * Reviewing Appropriate Tools were installed
 * Resolving issues with Junit 4.6 and Junit 5
 * Used Notes from Deliverable 1 provided to help resolve Deliverable 2
+* Fixed Software Requirements and define each one with a BlackBox Technique
 * Begin Building Test Cases
 
 **3/5/21**
