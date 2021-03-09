@@ -33,7 +33,7 @@ public class Login extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    public void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -186,6 +186,69 @@ public class Login extends javax.swing.JFrame {
         
         
         
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void jButton1ActionPerformedTest(String uname, String pasword) throws Exception {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
+        String username = uname;
+        String password = pasword;
+
+
+        if(username.isEmpty() ||  password.isEmpty())
+        {
+            throw new Exception("UserName or Password Blank");
+        }
+        else
+        {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline","root","password");
+                pst = con.prepareStatement("select * from user where username = ? and password = ?");
+                pst.setString(1, username);
+                pst.setString(2, password);
+
+                ResultSet rs;
+                rs = pst.executeQuery();
+
+
+                if(rs.next())
+                {
+                    Main m = new Main();
+                    this.hide();
+                    m.setVisible(true);
+
+
+
+                }
+                else
+                {
+                    throw new Exception("UserName or Password do not Match");
+
+                }
+
+
+
+
+
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+
+
+
+
+        }
+
+
+
+
+
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

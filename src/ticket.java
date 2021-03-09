@@ -46,7 +46,7 @@ public class ticket extends javax.swing.JInternalFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    public void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         txtsource = new javax.swing.JComboBox<>();
@@ -562,7 +562,7 @@ public class ticket extends javax.swing.JInternalFrame {
                  txtfirstname.setText(fname.trim());
                  txtlastname.setText(lname.trim());
                
-                 txtpassport.setText(passport.trim());
+                  txtpassport.setText(passport.trim());
 
 
             
@@ -608,6 +608,20 @@ public class ticket extends javax.swing.JInternalFrame {
         
         
         
+    }//GEN-LAST:event_txtseatsStateChanged
+
+    public String txtseatsStateChangedTest(String amount, String seats) {//Testing Method
+        // TODO add your handling code here:
+
+        int price = Integer.parseInt(amount);
+        int qty = Integer.parseInt(seats);
+
+        int tot = price * qty;
+
+        txttotal.setText(String.valueOf(tot));
+        return  String.valueOf(tot);
+
+
     }//GEN-LAST:event_txtseatsStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
