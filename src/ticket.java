@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -83,7 +84,6 @@ public class ticket extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         txttotal = new javax.swing.JLabel();
-        txtdate = new com.toedter.calendar.JDateChooser(); // 3) initialized txtdate
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select Country", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
@@ -562,7 +562,7 @@ public class ticket extends javax.swing.JInternalFrame {
                  txtfirstname.setText(fname.trim());
                  txtlastname.setText(lname.trim());
                
-                  txtpassport.setText(passport.trim());
+                 txtpassport.setText(passport.trim());
 
 
             
@@ -619,8 +619,8 @@ public class ticket extends javax.swing.JInternalFrame {
          String flightclass = txtclass.getSelectedItem().toString().trim();  
          String price = txtprice.getText();
          String seats = txtseats.getValue().toString();
-        DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-        String date = da.format(txtdate.getDate());
+        txtdate = java.time.LocalDate.now(); // 3) initialized txtdate
+        String date = txtdate.toString();
 
       
         
@@ -711,6 +711,6 @@ public class ticket extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> txtsource;
     private javax.swing.JLabel txtticketno;
     private javax.swing.JLabel txttotal;
-    private com.toedter.calendar.JDateChooser txtdate;// 3) added missing variable txtdate
+    private LocalDate txtdate;// 3) added missing variable txtdate
     // End of variables declaration//GEN-END:variables
 }
