@@ -33,3 +33,28 @@
 ![db](https://github.com/JoseSilvestreBautista/SWT-AirlineProduct/blob/master/images/database.png?raw=true)
 ![dbw](https://github.com/JoseSilvestreBautista/SWT-AirlineProduct/blob/master/images/databasew.png?raw=true)
 ![meeting3](https://github.com/JoseSilvestreBautista/SWT-AirlineProduct/blob/master/images/meeting3.png?raw=true)
+
+
+**2/26/21**
+* Delegated tasks for Deliverable 2
+* Created a Trello Board
+* Assigned work based on Trello Board 
+
+**3/3/21**
+* Reviewing Appropriate Tools were installed
+* Resolving issues with Junit 4.6 and Junit 5
+* Used Notes from Deliverable 1 provided to help resolve Deliverable 2
+* Begin Builing Test Cases
+
+**3/5/21**
+* Review Test Cases 
+* Get everyone up to date on Working environment
+* Ensure proper understanding of tests among group members.
+
+**3/8/21**
+* Complete Documentation 
+* Define a detailed description of the project
+* Create Powerpoint for presentation 
+* Completed table for test cases 
+* Planned Presentation
+
