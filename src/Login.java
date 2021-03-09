@@ -163,30 +163,29 @@ public class Login extends javax.swing.JFrame {
                        
                      
                  }
-                 
-                 
-                 
-                  
+
+
+
+
                   
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
-           
-            
-            
-            
-            
+
+
+
+
+
         }
      
-        
-        
-        
-        
-        
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    public boolean invalidEntry(String username, String password){
+        return username.isEmpty() || password.isEmpty();
+    }
 
     public void jButton1ActionPerformedTest(String uname, String pasword) throws Exception {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -197,6 +196,7 @@ public class Login extends javax.swing.JFrame {
 
         if(username.isEmpty() ||  password.isEmpty())
         {
+            JOptionPane.showMessageDialog(this, "UserName or Password Blank");
             throw new Exception("UserName or Password Blank");
         }
         else
@@ -223,6 +223,10 @@ public class Login extends javax.swing.JFrame {
                 }
                 else
                 {
+                    JOptionPane.showMessageDialog(this, "UserName or Password do not Match");
+                    txtuser.setText("");
+                    txtpass.setText("");
+                    txtuser.requestFocus();
                     throw new Exception("UserName or Password do not Match");
 
                 }

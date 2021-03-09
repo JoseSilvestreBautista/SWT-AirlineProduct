@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 class LoginTest {
   @Test
-  public void testNegative(){
+  public void negativeTesting(){
     Login log = new Login();
 
     Exception empty =  assertThrows(Exception.class, () ->log.jButton1ActionPerformedTest("",""));
@@ -13,6 +13,18 @@ class LoginTest {
     Exception noUserExistException =  assertThrows(Exception.class, () ->log.jButton1ActionPerformedTest("lee","123"));
     assertEquals("UserName or Password do not Match", noUserExistException.getMessage());
 
+  }
+
+  @Test
+  void inputValidation() {
+    Login log = new Login();
+    assertTrue(log.invalidEntry("", ""));
+
+    assertTrue(log.invalidEntry("john", ""));
+
+    assertTrue(log.invalidEntry("", "123"));
+
+    assertFalse(log.invalidEntry("john", "123"));
   }
 
 }
