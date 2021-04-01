@@ -432,7 +432,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
         String id = txtid.getText();
@@ -444,15 +444,19 @@ public class addCustomer extends javax.swing.JInternalFrame {
         
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
         String date = da.format(txtdob.getDate());
-        String Gender;
-        
+        String Gender = "";
+        Boolean r1genderSelected = false;
+        Boolean r2genderSelected = false;
+
+        genderOption(r1genderSelected,r2genderSelected);
+
         if(r1.isSelected())
         {
             Gender = "Male";
         }
         else
         {
-            Gender = "FeMale";
+            Gender = "Female";
         }
         
          String contact = txtcontact.getText();
@@ -475,7 +479,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
             pst.executeUpdate();
             
             
-            JOptionPane.showMessageDialog(null,"Registation Createdd.........");
+            JOptionPane.showMessageDialog(null,"Registration Created.........");
             
             
         } catch (ClassNotFoundException ex) {
@@ -494,6 +498,21 @@ public class addCustomer extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    public Boolean genderOption(Boolean r1genderSelected, Boolean r2genderSelected) {
+        // adding code to test the function of the GUI
+        Boolean testChoice = false;
+
+
+        if (r1genderSelected) {
+            testChoice = true;
+        }
+        else if (r2genderSelected) {
+            testChoice = true;
+        }
+
+        return testChoice;
+    }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
