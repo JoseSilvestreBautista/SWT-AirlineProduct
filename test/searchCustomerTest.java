@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class searchCustomerTest {
-searchCustomer searchCustomer = new searchCustomer();
+  searchCustomer searchCustomer = new searchCustomer();
   @BeforeEach
   void jButton1ActionPerformedTest(){
     searchCustomer.jButton1ActionPerformedTest();

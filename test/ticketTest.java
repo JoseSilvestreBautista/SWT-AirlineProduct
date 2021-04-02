@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.Duration;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +11,6 @@ class ticketTest {
   public void testPostive(){
     ticket.txtprice.setText("1000");
     ticket.txtseats.setValue(5);
-
 
     ticket.txtseatsStateChanged(null);
     String tot = ticket.txttotal.getText();
@@ -28,6 +28,14 @@ class ticketTest {
     Assertions.assertEquals(pass, ticket.jButton1ActionPerformedTest(0));
     Assertions.assertEquals(maxSeats, ticket.jButton1ActionPerformedTest(417));
 
+  }
+
+  /**
+   * Test for Requirement 10
+   */
+  @Test
+  void jButton3ActionPerformedTest() {
+    Assertions.assertTimeout(Duration.ofSeconds(2), () -> ticket.jButton3ActionPerformedTest());
   }
 
 }

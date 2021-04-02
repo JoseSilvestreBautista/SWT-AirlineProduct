@@ -429,9 +429,7 @@ public class ticket extends javax.swing.JInternalFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
              con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline","root","password");
              pst = con.prepareStatement("SELECT * from flight WHERE source = ? and depart = ?");
-             
-             
-          
+
              
              pst.setString(1, source);
              pst.setString(2, depart);
@@ -462,14 +460,8 @@ public class ticket extends javax.swing.JInternalFrame {
                  
                  Df.addRow(v2);
                  
-              
-                 
-                 
              }
-             
-             
-             
-             
+
              
              
         } catch (ClassNotFoundException ex) {
@@ -477,13 +469,60 @@ public class ticket extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
-        
-        
-        
-        
-        
-        
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    public void jButton3ActionPerformedTest() {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+
+        String source = "India";
+        String depart = "Srilanka";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline","root","password");
+            pst = con.prepareStatement("SELECT * from flight WHERE source = ? and depart = ?");
+
+
+            pst.setString(1, source);
+            pst.setString(2, depart);
+            ResultSet rs = pst.executeQuery();
+
+            ResultSetMetaData rsm = rs.getMetaData();
+            int c;
+            c = rsm.getColumnCount();
+
+            DefaultTableModel Df = (DefaultTableModel)jTable1.getModel();
+            Df.setRowCount(0);
+
+            while(rs.next())
+            {
+                Vector v2 = new Vector();
+
+                for(int i = 1; i<= c; i ++)
+                {
+                    v2.add(rs.getString("id"));
+                    v2.add(rs.getString("flightname"));
+                    v2.add(rs.getString("source"));
+                    v2.add(rs.getString("depart"));
+                    v2.add(rs.getString("date"));
+                    v2.add(rs.getString("deptime"));
+                    v2.add(rs.getString("arrtime"));
+                    v2.add(rs.getString("flightcharge"));
+                }
+
+                Df.addRow(v2);
+
+            }
+
+
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     
