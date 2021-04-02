@@ -380,7 +380,38 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    public void jButton1ActionPerformedTest() {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            JFileChooser picchooser = new JFileChooser();
+            picchooser.showOpenDialog(null);
+            File pic = picchooser.getSelectedFile();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images", "png", "jpg");
+            picchooser.addChoosableFileFilter(filter);
+            path = pic.getAbsolutePath();
+            BufferedImage img;
+            img = ImageIO.read(picchooser.getSelectedFile());
+            ImageIcon imageIcon = new ImageIcon(new
+                ImageIcon(img).getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT));
+            txtphoto.setIcon(imageIcon);
+
+            File image = new File(path);
+            FileInputStream fis = new FileInputStream(image);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            byte[] buff = new byte[1024];
+            for (int readNum; (readNum = fis.read(buff)) != -1; ) {
+                baos.write(buff, 0, readNum);
+            }
+            userimage = baos.toByteArray();
+
+
+        } catch (IOException ex) {
+            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+        private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
         String id = txtcustid.getText();
@@ -432,6 +463,58 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void jButton2ActionPerformedTest() {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+
+        String id = "CS001";
+        String firstname = "fNameUpdate";
+        String lastname = "lNameUpdate";
+        String nic = "numberUpdate";
+        String passport = "passportUpdate";
+        String address = "addressUpdate";
+
+        DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+        String date = da.format(new Date());
+        String Gender;
+
+        if(r1.isSelected())
+        {
+            Gender = "Male";
+        }
+        else
+        {
+            Gender = "FeMale";
+        }
+
+        String contact = "123456789";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline","root","password");
+            pst = con.prepareStatement("update customer set firstname = ?,lastname = ?,nic = ?,passport = ?,address= ?,dob = ?,gender = ?,contact = ?,photo = ? where id = ?");
+
+
+            pst.setString(1, firstname);
+            pst.setString(2, lastname);
+            pst.setString(3, nic);
+            pst.setString(4, passport);
+            pst.setString(5, address);
+            pst.setString(6, date);
+            pst.setString(7, Gender);
+            pst.setString(8, contact);
+            pst.setBytes(9, userimage);
+            pst.setString(10, id);
+            pst.executeUpdate();
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:

@@ -16,6 +16,7 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -519,20 +520,7 @@ public class ticket extends javax.swing.JInternalFrame {
     
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -622,10 +610,19 @@ public class ticket extends javax.swing.JInternalFrame {
         txtdate = java.time.LocalDate.now(); // 3) initialized txtdate
         String date = txtdate.toString();
 
-      
-        
-         
-         
+        if((Integer) txtseats.getValue() < 0){
+            JOptionPane optionPane = new JOptionPane("Only Enter Positive Integers", JOptionPane.ERROR_MESSAGE);
+            JDialog dialog = optionPane.createDialog("ERROR");
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+            return;
+        } else if((Integer) txtseats.getValue() > 416){
+            JOptionPane optionPane = new JOptionPane("Only 416 Seats Are Available ", JOptionPane.ERROR_MESSAGE);
+            JDialog dialog = optionPane.createDialog("ERROR");
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+            return;
+        }
       
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -644,26 +641,63 @@ public class ticket extends javax.swing.JInternalFrame {
             pst.executeUpdate();
             
             
-            JOptionPane.showMessageDialog(null,"Ticket Bookeed.........");
+            JOptionPane.showMessageDialog(null,"Ticket Booked");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public String jButton1ActionPerformedTest(Object seatAmount) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
+        String ticketid = "TO015";
+        String flightid = "FO003";
+        String custid = "CS001";
+        String flightclass = "Test";
+        String price = "0";
+        String seats = "1";
+        txtdate = java.time.LocalDate.now(); // 3) initialized txtdate
+        String date = txtdate.toString();
+        String pass = "pass";
+
+        if((Integer) seatAmount < 0){
+            String string = "Only Enter Positive Integers";
+            return string;
+        } else if((Integer) seatAmount > 416){
+            String string = "Only 416 Seats Are Available ";
+            return string;
+        }
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline","root","password");
+            pst = con.prepareStatement("insert into ticket(id,flightid,custid,class,price,seats,date)values(?,?,?,?,?,?,?)");
+
+            pst.setString(1, ticketid);
+            pst.setString(2, flightid);
+            pst.setString(3, custid);
+            pst.setString(4, flightclass);
+            pst.setString(5, price);
+            pst.setString(6, seats);
+            pst.setString(7, date);
+
+
+            pst.executeUpdate();
+
+
+            JOptionPane.showMessageDialog(null,"Ticket Booked");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return pass;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
