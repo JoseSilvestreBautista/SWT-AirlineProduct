@@ -380,7 +380,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
         String id = txtcustid.getText();
@@ -438,6 +438,12 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
         this.hide();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    public static Boolean testSearchTime(String testid){
+        //testing the time it takes to pull the search from the database
+        //this isn't right yet.. needs more help
+        return false;
+    }
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
