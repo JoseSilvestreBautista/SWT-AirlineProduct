@@ -12,14 +12,13 @@ class MainTest {
 
   @Test
   public void mockOpenDatabase() throws Exception {
-    java.awt.event.ActionEvent evt = null;
     Main main = Mockito.mock(Main.class);
 
-    Mockito.doNothing().when(main).jMenuItem1ActionPerformed(evt);
+    Mockito.doNothing().when(main).jMenuItem1ActionPerformed(null);
 
     try {
-      main.jMenuItem1ActionPerformed(evt);
-      verify(main, times(1)).jMenuItem1ActionPerformed( evt);
+      main.jMenuItem1ActionPerformed(null);
+      verify(main, times(1)).jMenuItem1ActionPerformed(null);
     } catch (Exception e) {
       e.printStackTrace();
     }
