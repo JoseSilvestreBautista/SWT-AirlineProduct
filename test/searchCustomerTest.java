@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
@@ -8,9 +9,8 @@ class searchCustomerTest {
     searchCustomer sc = new searchCustomer();
 
     @Test
-    public void searchTimeTest(){
-        Boolean actualResult = assertTimeout(Duration.ofSeconds(2), () -> searchCustomer.testSearchTime("U001") );
-        assertFalse(actualResult);
+    void jButton4ActionPerformedTest() {
+        Assertions.assertTimeout(Duration.ofSeconds(2), () -> sc.jButton4ActionPerformedTest());
     }
 
 }

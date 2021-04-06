@@ -441,14 +441,83 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     public static Boolean testSearchTime(String testid){
         //testing the time it takes to pull the search from the database
-        //this isn't right yet.. needs more help
+
         return false;
     }
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+            // TODO add your handling code here:
+
+            String id = txtcustid.getText();
+
+
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "password");
+                pst = con.prepareStatement("select * from customer where id = ?");
+                pst.setString(1, id);
+                ResultSet rs = pst.executeQuery();
+
+                if (rs.next() == false) {
+                    JOptionPane.showMessageDialog(this, "Record not Found");
+                } else {
+                    String fname = rs.getString("firstname");
+                    String lname = rs.getString("lastname");
+                    String nic = rs.getString("nic");
+                    String passport = rs.getString("passport");
+
+                    String address = rs.getString("address");
+                    String dob = rs.getString("dob");
+                    Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(dob);
+                    String gender = rs.getString("gender");
+
+                    Blob blob = rs.getBlob("photo");
+                    byte[] _imagebytes = blob.getBytes(1, (int) blob.length());
+                    ImageIcon image = new ImageIcon(_imagebytes);
+                    Image im = image.getImage();
+                    Image myImg = im.getScaledInstance(txtphoto.getWidth(), txtphoto.getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon newImage = new ImageIcon(myImg);
+
+
+                    if (gender.equals("Female")) {
+                        r1.setSelected(false);
+                        r2.setSelected(true);
+
+                    } else {
+                        r1.setSelected(true);
+                        r2.setSelected(false);
+                    }
+                    String contact = rs.getString("contact");
+
+
+                    txtfirstname.setText(fname.trim());
+                    txtlastname.setText(lname.trim());
+                    txtnic.setText(nic.trim());
+                    txtpassport.setText(passport.trim());
+                    txtaddress.setText(address.trim());
+                    txtcontact.setText(contact.trim());
+                    txtdob.setDate(date1);
+                    txtphoto.setIcon(newImage);
+
+
+                }
+
+
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParseException ex) {
+                Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    public void jButton4ActionPerformedTest() {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
 
-        String id = txtcustid.getText();
+        String id = "CS001";
 
 
         try {
@@ -479,25 +548,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                 ImageIcon newImage = new ImageIcon(myImg);
 
 
-                if (gender.equals("Female")) {
-                    r1.setSelected(false);
-                    r2.setSelected(true);
-
-                } else {
-                    r1.setSelected(true);
-                    r2.setSelected(false);
-                }
                 String contact = rs.getString("contact");
-
-
-                txtfirstname.setText(fname.trim());
-                txtlastname.setText(lname.trim());
-                txtnic.setText(nic.trim());
-                txtpassport.setText(passport.trim());
-                txtaddress.setText(address.trim());
-                txtcontact.setText(contact.trim());
-                txtdob.setDate(date1);
-                txtphoto.setIcon(newImage);
 
 
             }
@@ -510,9 +561,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         } catch (ParseException ex) {
             Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
