@@ -421,7 +421,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
             pst.executeUpdate();
 
 
-            JOptionPane.showMessageDialog(null, "Registation Updateddddd.........");
+            JOptionPane.showMessageDialog(null, "Registation Updated.........");
 
 
         } catch (ClassNotFoundException ex) {
