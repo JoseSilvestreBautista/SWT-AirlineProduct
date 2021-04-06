@@ -1,7 +1,9 @@
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
 class addCustomerTest {
+
 
     @Test
     public void genderChosenTest() {
@@ -14,4 +16,5 @@ class addCustomerTest {
         assertEquals(true, test2);
         assertEquals(false, test3);
     }
+
 }
