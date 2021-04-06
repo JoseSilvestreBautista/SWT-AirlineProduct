@@ -440,14 +440,13 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
         genderOption(r1genderSelected,r2genderSelected);
 
-        if(r1.isSelected())
-        {
-            Gender = "Male";
-        }
-        else
-        {
-            Gender = "Female";
-        }
+            if (r1.isSelected() && !r2.isSelected()) {
+                Gender = "Male";
+            } else if (r2.isSelected() && !r1.isSelected()) {
+                Gender = "Female";
+            } else {
+                JOptionPane.showMessageDialog(null, "Please choose only 1 gender.");
+            }
         
          String contact = txtcontact.getText();
          
@@ -486,11 +485,13 @@ public class addCustomer extends javax.swing.JInternalFrame {
         Boolean testChoice = false;
 
 
-        if (r1genderSelected) {
+        if (r1genderSelected && !r2genderSelected) {
             testChoice = true;
         }
-        else if (r2genderSelected) {
+        else if (r2genderSelected && !r1genderSelected) {
             testChoice = true;
+        }else{
+            testChoice = false;
         }
 
         return testChoice;
