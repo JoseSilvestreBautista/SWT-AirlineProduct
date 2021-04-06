@@ -417,18 +417,8 @@ public class addCustomer extends javax.swing.JInternalFrame {
         } catch (IOException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       
-       
-       
-       
-       
-       
-       
-        
-        
-        
-        
+
+
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
