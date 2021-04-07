@@ -45,3 +45,19 @@
 * Completed table for test cases 
 * Planned Presentation
 
+**3/28/2021**
+* Delegated tasks for Deliverable 3
+* Adjusted Trello for new tasks
+* Assigned work on Trello
+
+**4/3/2021**
+* Setup Maven
+* Setup Mockito
+* Made sure everyone was up to date with new tools
+* Created Stub and Mock tests
+
+**4/4/2021**
+* Reviewed Stub and Mock tests
+* Completed documentation
+* Created Powerpoint for presentation
+* Planned presentation
