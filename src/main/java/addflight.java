@@ -271,6 +271,10 @@ public class addflight extends javax.swing.JInternalFrame {
         String flightcharge = txtflightcharge.getText();
 
 
+        if(invalidEntry(id,flightname,source,depart,date,departtime,arrtime,flightcharge)) {
+            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, "One or more of the fields for adding a flight is empty.");
+            return;
+        }
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "password");
@@ -304,6 +308,24 @@ public class addflight extends javax.swing.JInternalFrame {
 
         this.hide();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    public boolean invalidEntry(String id,
+                                String flightname,
+                                String source,
+                                String depart,
+                                String date,
+                                String departtime,
+                                String arrtime,
+                                String flightcharge){
+        return id.isEmpty() ||
+                flightname.isEmpty() ||
+                source.isEmpty() ||
+                depart.isEmpty() ||
+                date.isEmpty() ||
+                departtime.isEmpty() ||
+                arrtime.isEmpty() ||
+                flightcharge.isEmpty();
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
