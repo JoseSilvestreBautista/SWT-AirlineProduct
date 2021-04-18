@@ -252,6 +252,38 @@ public class addflight extends javax.swing.JInternalFrame {
 
     }
 
+    public String jButton1ActionPerformedTest(String id, String flightname, String source, String depart, String date, String departtime, String arrtime, String flightcharge) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        if(invalidEntry(id,flightname,source,depart,date,departtime,arrtime,flightcharge)) {
+            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, "One or more of the fields for adding a flight is empty.");
+            return "One or more of the fields for adding a flight is empty.";
+        }
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "password");
+            pst = con.prepareStatement("insert into flight(id,flightname,source,depart,date,deptime,arrtime,flightcharge)values(?,?,?,?,?,?,?,?)");
+
+            pst.setString(1, id);
+            pst.setString(2, flightname);
+            pst.setString(3, source);
+            pst.setString(4, depart);
+            pst.setString(5, date);
+            pst.setString(6, departtime);
+            pst.setString(7, arrtime);
+            pst.setString(8, flightcharge);
+
+            pst.executeUpdate();
+
+
+            return "Flight Created.........";
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return "DB failure";
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -292,7 +324,7 @@ public class addflight extends javax.swing.JInternalFrame {
             pst.executeUpdate();
 
 
-            JOptionPane.showMessageDialog(null, "Flight Createdd.........");
+            JOptionPane.showMessageDialog(null, "Flight Created.........");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
