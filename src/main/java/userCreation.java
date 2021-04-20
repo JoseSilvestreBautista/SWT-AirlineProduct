@@ -54,6 +54,12 @@ public class userCreation extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         txtpassword = new javax.swing.JPasswordField();
 
+        txtfirstname.setName("txtfirstname");
+        txtlastname.setName("txtlastname");
+        txtusername.setName("txtusername");
+        txtpassword.setName("txtpassword");
+        jButton1.setName("addBtn");
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("User Creation"));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

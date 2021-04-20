@@ -61,6 +61,16 @@ public class addflight extends javax.swing.JInternalFrame {
         txtsource = new javax.swing.JComboBox<>();
         txtdepart = new javax.swing.JComboBox<>();
 
+        txtflightname.setName("txtflightname");
+        txtsource.setName("txtsource");
+        txtdepart.setName("txtdepart");
+        txtdate.setName("txtdate");
+        txtdtime.setName("txtdtime");
+        txtarrtime.setName("txtarrtime");
+        txtflightcharge.setName("txtflightcharge");
+        jButton1.setName("addBtn");
+
+
         jPanel1.setBackground(new java.awt.Color(51, 51, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
