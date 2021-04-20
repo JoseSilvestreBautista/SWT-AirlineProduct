@@ -14,8 +14,6 @@ class LoginTest {
       assertFalse(log.invalidEntry("john", "123"));
     }
 
-
-
   @AfterEach
   void cleanup(){
     log.txtuser.setText("");

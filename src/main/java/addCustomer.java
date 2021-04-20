@@ -82,6 +82,17 @@ public class addCustomer extends javax.swing.JInternalFrame {
     jButton3 = new javax.swing.JButton();
     txtdob = new com.toedter.calendar.JDateChooser();// 2) initialized txtdob
 
+    txtfirstname.setName("txtfirstname");
+    txtlastname.setName("txtlastname");
+    txtnic.setName("txtnic");
+    txtpassport.setName("txtpassport");
+    txtaddress.setName("txtaddress");
+    txtdob.setName("txtdob");
+    r1.setName("r1");
+    r2.setName("r2");
+    txtcontact.setName("txtcontact");
+
+
     jPanel1.setBackground(new java.awt.Color(51, 0, 255));
 
     jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -230,6 +241,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
                 .addGroup(
                     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel8)
+                        .addComponent(txtdob)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout
                                 .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,6 +263,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jLabel8)
+                .addComponent(txtdob)
                 .addGap(18, 18, 18)
                 .addGroup(
                     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -389,7 +402,6 @@ public class addCustomer extends javax.swing.JInternalFrame {
             .parseLong(rs.getString("MAX(id)").substring(2));
         id++;
         txtid.setText("CS" + String.format("%03d", id));
-
       }
 
     } catch (ClassNotFoundException ex) {
@@ -397,7 +409,6 @@ public class addCustomer extends javax.swing.JInternalFrame {
     } catch (SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
-
   }
 
   private void txtlastnameActionPerformed(
@@ -426,7 +437,6 @@ public class addCustomer extends javax.swing.JInternalFrame {
     }
     return baos;
   }
-
 
   public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -468,6 +478,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
     String nic = txtnic.getText();
     String passport = txtpassport.getText();
     String address = txtaddress.getText();
+    userimage = makeByteArray("images/meeting2.png").toByteArray();
 
     DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
     String date = da.format(txtdob.getDate());
@@ -484,6 +495,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
     }
 
     String contact = txtcontact.getText();
+
 
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");

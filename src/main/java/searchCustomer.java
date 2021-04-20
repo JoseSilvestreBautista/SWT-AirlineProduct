@@ -13,7 +13,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,7 +21,10 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
@@ -85,6 +87,10 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         txtcustid = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         txtdob = new com.toedter.calendar.JDateChooser();// 1) initialized txtdob
+
+        txtcustid.setName("txtcustid");
+        jButton4.setName("jButton4");
+
 
         jPanel1.setBackground(new java.awt.Color(51, 0, 255));
 
@@ -209,6 +215,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                                 .addGap(22, 22, 22)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel8)
+                                        .addComponent(txtdob)
                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jLabel9)
@@ -227,6 +234,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
                                 .addComponent(jLabel8)
+                                .addComponent(txtdob)
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel9)
@@ -531,32 +539,32 @@ return customerFound;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JRadioButton r1;
-    private javax.swing.JRadioButton r2;
-    private javax.swing.JTextArea txtaddress;
-    private javax.swing.JTextField txtcontact;
-    private javax.swing.JTextField txtcustid;
+    public javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton3;
+    public javax.swing.JButton jButton4;
+    public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel10;
+    public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabel8;
+    public javax.swing.JLabel jLabel9;
+    public javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel2;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JRadioButton r1;
+    public javax.swing.JRadioButton r2;
+    public javax.swing.JTextArea txtaddress;
+    public javax.swing.JTextField txtcontact;
+    public javax.swing.JTextField txtcustid;
     public javax.swing.JTextField txtfirstname;
-    private javax.swing.JTextField txtlastname;
-    private javax.swing.JTextField txtnic;
-    private javax.swing.JTextField txtpassport;
-    private javax.swing.JLabel txtphoto;
-    private com.toedter.calendar.JDateChooser txtdob; // 1) added missing variable txtdob
+    public javax.swing.JTextField txtlastname;
+    public javax.swing.JTextField txtnic;
+    public javax.swing.JTextField txtpassport;
+    public javax.swing.JLabel txtphoto;
+    public com.toedter.calendar.JDateChooser txtdob; // 1) added missing variable txtdob
     // End of variables declaration//GEN-END:variables
 }

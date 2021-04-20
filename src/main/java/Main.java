@@ -21,7 +21,7 @@ public class Main extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    public void initComponents() {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -35,6 +35,10 @@ public class Main extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
+
+        jMenu1.setName("jMenu1");
+        jMenuItem1.setName("addCustomer");
+        jMenuItem2.setName("searchCustomer");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1366, 768));
@@ -221,17 +225,17 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    public javax.swing.JDesktopPane jDesktopPane1;
+    public javax.swing.JMenu jMenu1;
+    public javax.swing.JMenu jMenu2;
+    public javax.swing.JMenu jMenu3;
+    public javax.swing.JMenu jMenu4;
+    public javax.swing.JMenuBar jMenuBar1;
+    public javax.swing.JMenuItem jMenuItem1;
+    public javax.swing.JMenuItem jMenuItem2;
+    public javax.swing.JMenuItem jMenuItem3;
+    public javax.swing.JMenuItem jMenuItem4;
+    public javax.swing.JMenuItem jMenuItem5;
+    public javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
 }
