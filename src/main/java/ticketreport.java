@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +19,8 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class ticketreport extends javax.swing.JInternalFrame {
+
+    public Object jbutton1;
 
     /**
      * Creates new form ticketreport
@@ -87,13 +90,25 @@ public class ticketreport extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    public boolean jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Boolean jbutton1 = false;
         this.hide();
+        return jbutton1;
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public ArrayList loadDataTest() throws SQLException {
+        ArrayList flightArray = new ArrayList<String>();
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "password");
+        ResultSet rs = con.createStatement().executeQuery("select flightname from flight;");
+        while(rs.next()){
+            flightArray.add(rs.getString(1));
+        }
+        return flightArray;
+    }
 
-    public void LoadData() {
+
+    public boolean LoadData() {
+        Boolean load = false;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "password");
@@ -123,7 +138,7 @@ public class ticketreport extends javax.swing.JInternalFrame {
 
                 Df.addRow(v2);
 
-
+load = true;
             }
 
 
@@ -133,7 +148,7 @@ public class ticketreport extends javax.swing.JInternalFrame {
             Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
+return load;
     }
 
 

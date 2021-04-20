@@ -18,10 +18,19 @@ class userCreationTest {
     Usernames = uC.getExistingUsers();
   }
 
+
   @Test
-  public void creatingExistingUserTest(){
+  void getExistingUsers() {
+  }
+
+  @Test
+  void jButton1ActionPerformed() {
     uC.txtusername.setText("john"); //"john" already exists within the db
     //jButtonActionPerformed returns true when the user already exists
     Assertions.assertEquals(true, uC.jButton1ActionPerformed(null));
+  }
+
+  @Test
+  void autoID() {
   }
 }
