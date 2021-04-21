@@ -348,20 +348,6 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtpassportActionPerformed
 
 
-    public ByteArrayOutputStream testingByteArray(String Path) {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        try {
-            File image = new File(path);
-            FileInputStream fis = new FileInputStream(image);
-            byte[] buff = new byte[1024];
-            for (int readNum; (readNum = fis.read(buff)) != -1; ) {
-                baos.write(buff, 0, readNum);
-            }
-        }catch(IOException e){
-            e.printStackTrace();
-        }
-        return baos;
-    }
     public boolean jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Boolean baosTest = false;
         try {
@@ -408,7 +394,7 @@ return baosTest;
         String address = txtaddress.getText();
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
         String date = da.format(txtdob.getDate());
-        String Gender;
+        String Gender = "";
 
         Boolean male = r1.isSelected();
         Boolean female = r2.isSelected();

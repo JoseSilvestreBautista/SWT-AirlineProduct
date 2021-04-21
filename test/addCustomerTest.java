@@ -57,7 +57,7 @@ class addCustomerTest {
     byte[] testImage;
 
 
-    @BeforeEach
+    @Test
     public void jButton2ActionPerformedtest() {
         //initialize the fields for jButton2ActionPerformed
         aC.txtfirstname.setText("test");
@@ -71,7 +71,7 @@ class addCustomerTest {
         aC.txtcontact.setText("0");
 
         //initialize the jButton1ActionPerformedTest test Image
-        aC.jButton1ActionPerformed(null);
+        aC.jButton2ActionPerformed(null);
     }
 
     @Test

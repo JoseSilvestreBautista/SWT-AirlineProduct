@@ -90,10 +90,8 @@ public class ticketreport extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public boolean jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Boolean jbutton1 = false;
+    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.hide();
-        return jbutton1;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public ArrayList loadDataTest() throws SQLException {
@@ -107,8 +105,7 @@ public class ticketreport extends javax.swing.JInternalFrame {
     }
 
 
-    public boolean LoadData() {
-        Boolean load = false;
+    public void LoadData() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "password");
@@ -137,8 +134,6 @@ public class ticketreport extends javax.swing.JInternalFrame {
                 }
 
                 Df.addRow(v2);
-
-load = true;
             }
 
 
@@ -148,7 +143,6 @@ load = true;
             Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-return load;
     }
 
 

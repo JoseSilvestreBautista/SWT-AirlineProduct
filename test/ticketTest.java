@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 import java.sql.*;
 import java.time.Duration;
@@ -8,24 +9,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 class ticketTest {
   ticket ticket = new ticket();
-  Connection connection;
-  Statement stmt = connection.createStatement();
 
-  ticketTest() throws SQLException {
-  }
-
-  @Before
-  public void before() throws SQLException {
-    connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "password");
-  }
-
-  @After
-  public void after() throws SQLException {
-    stmt.close();
-  }
 
   @Test
   public void testPostive(){
@@ -59,12 +47,28 @@ class ticketTest {
   }
 
   @Test
-  void initComponents() {
+  void initComponentsTest() {
+    ticket ticket = mock(ticket.class);
+
+    Mockito.doNothing().when(ticket).initComponents();
+    Mockito.doNothing().when(ticket).autoID();
+
+    try {
+      ticket.initComponents();
+      ticket.autoID();
+      verify(ticket, times(1)).initComponents();
+      verify(ticket, times(1)).autoID();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
   @Test
-  void autoID() {
-
+  void autoIDTest() {
+    ticket ticket = new ticket();
+    ticket.autoID();
+    String tnumber = ticket.txtticketno.toString();
+    assertEquals(ticket.txtticketno.toString(),tnumber);
   }
 
   @Test
