@@ -1,16 +1,9 @@
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-
-import com.mysql.cj.log.Log;
-import java.sql.DriverManager;
 import java.time.Duration;
-
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.junit.Test;
 
-class LoginTest {
+public class LoginTest {
 
   Login log = new Login();
 
@@ -26,13 +19,13 @@ class LoginTest {
   }
 
   @AfterEach
-  void cleanup() {
+  public void cleanup() {
     log.txtuser.setText("");
     log.txtpass.setText("");
   }
 
   @Test
-  void Test1() {
+  public void Test1() {
     log.txtuser.setText("");
     log.txtpass.setText("");
     Exception exception = assertThrows(Exception.class, () -> log.jButton1ActionPerformed(null));
@@ -40,7 +33,7 @@ class LoginTest {
   }
 
   @Test
-  void Test2() {
+  public void Test2() {
     log.txtuser.setText("");
     log.txtpass.setText("123");
     Exception exception = assertThrows(Exception.class, () -> log.jButton1ActionPerformed(null));
@@ -49,7 +42,7 @@ class LoginTest {
 
 
   @Test
-  void Test3() {
+  public void Test3() {
     log.txtuser.setText("john");
     log.txtpass.setText("");
     Exception exception = assertThrows(Exception.class, () -> log.jButton1ActionPerformed(null));
@@ -58,14 +51,14 @@ class LoginTest {
 
 
   @Test
-  void Test4() throws Exception {
+  public void Test4() throws Exception {
     log.txtuser.setText("john");
     log.txtpass.setText("123");
     assertTrue(log.jButton1ActionPerformed(null));
   }
 
   @Test
-  void Test5() throws Exception {
+  public void Test5() throws Exception {
     log.txtuser.setText("NoUserExist");
     log.txtpass.setText("NoUserExist");
     Exception exception = assertThrows(Exception.class, () -> log.jButton1ActionPerformed(null));
@@ -75,7 +68,7 @@ class LoginTest {
   // NF03 Performance Test
   // Tests that the system allows access within 2 seconds of loggin in
   @Test
-  void Test6() throws Exception {
+  public void Test6() throws Exception {
     log.txtuser.setText("john");
     log.txtpass.setText("123");
     assertTimeout(Duration.ofSeconds(2), () -> log.jButton1ActionPerformed(null));
