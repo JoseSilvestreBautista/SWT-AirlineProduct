@@ -429,7 +429,7 @@ public class ticket extends javax.swing.JInternalFrame {
         
         String source = txtsource.getSelectedItem().toString().trim();
         String depart = txtdepart.getSelectedItem().toString().trim();
-        
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
              con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline","root","password");
@@ -445,6 +445,7 @@ public class ticket extends javax.swing.JInternalFrame {
              c = rsm.getColumnCount();
              
              DefaultTableModel Df = (DefaultTableModel)jTable1.getModel();
+             System.out.println(jTable1);
              Df.setRowCount(0);
              
              while(rs.next())
@@ -469,62 +470,7 @@ public class ticket extends javax.swing.JInternalFrame {
 
              
              
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    public void jButton3ActionPerformedTest() {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-
-        String source = "India";
-        String depart = "Srilanka";
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline","root","password");
-            pst = con.prepareStatement("SELECT * from flight WHERE source = ? and depart = ?");
-
-
-            pst.setString(1, source);
-            pst.setString(2, depart);
-            ResultSet rs = pst.executeQuery();
-
-            ResultSetMetaData rsm = rs.getMetaData();
-            int c;
-            c = rsm.getColumnCount();
-
-            DefaultTableModel Df = (DefaultTableModel)jTable1.getModel();
-            Df.setRowCount(0);
-
-            while(rs.next())
-            {
-                Vector v2 = new Vector();
-
-                for(int i = 1; i<= c; i ++)
-                {
-                    v2.add(rs.getString("id"));
-                    v2.add(rs.getString("flightname"));
-                    v2.add(rs.getString("source"));
-                    v2.add(rs.getString("depart"));
-                    v2.add(rs.getString("date"));
-                    v2.add(rs.getString("deptime"));
-                    v2.add(rs.getString("arrtime"));
-                    v2.add(rs.getString("flightcharge"));
-                }
-
-                Df.addRow(v2);
-
-            }
-
-
-
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -555,18 +501,16 @@ public class ticket extends javax.swing.JInternalFrame {
             
             
             
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-    
+
+
     }
     
 
     
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    public void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
           String id = txtcustid.getText();
         
@@ -602,18 +546,14 @@ public class ticket extends javax.swing.JInternalFrame {
             
       
                 
-            } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+            } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    public void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         
        DefaultTableModel Df = (DefaultTableModel)jTable1.getModel();
@@ -642,7 +582,7 @@ public class ticket extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_txtseatsStateChanged
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    public String jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
          String ticketid = txtticketno.getText();
@@ -659,13 +599,13 @@ public class ticket extends javax.swing.JInternalFrame {
             JDialog dialog = optionPane.createDialog("ERROR");
             dialog.setAlwaysOnTop(true);
             dialog.setVisible(true);
-            return;
+            return "Only Enter Positive Integers";
         } else if((Integer) txtseats.getValue() > 416){
             JOptionPane optionPane = new JOptionPane("Only 416 Seats Are Available ", JOptionPane.ERROR_MESSAGE);
             JDialog dialog = optionPane.createDialog("ERROR");
             dialog.setAlwaysOnTop(true);
             dialog.setVisible(true);
-            return;
+            return "Only 416 Seats Are Available ";
         }
       
         try {
@@ -686,69 +626,20 @@ public class ticket extends javax.swing.JInternalFrame {
             
             
             JOptionPane.showMessageDialog(null,"Ticket Booked");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
+        return "pass";
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public String jButton1ActionPerformedTest(Object seatAmount) {//GEN-FIRST:event_jButton1ActionPerformed
+
+    public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
-        String ticketid = "TO015";
-        String flightid = "FO003";
-        String custid = "CS001";
-        String flightclass = "Test";
-        String price = "0";
-        String seats = "1";
-        txtdate = java.time.LocalDate.now(); // 3) initialized txtdate
-        String date = txtdate.toString();
-        String pass = "pass";
-
-        if((Integer) seatAmount < 0){
-            String string = "Only Enter Positive Integers";
-            return string;
-        } else if((Integer) seatAmount > 416){
-            String string = "Only 416 Seats Are Available ";
-            return string;
-        }
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline","root","password");
-            pst = con.prepareStatement("insert into ticket(id,flightid,custid,class,price,seats,date)values(?,?,?,?,?,?,?)");
-
-            pst.setString(1, ticketid);
-            pst.setString(2, flightid);
-            pst.setString(3, custid);
-            pst.setString(4, flightclass);
-            pst.setString(5, price);
-            pst.setString(6, seats);
-            pst.setString(7, date);
-
-
-            pst.executeUpdate();
-
-
-            JOptionPane.showMessageDialog(null,"Ticket Booked");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return pass;
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        
         this.hide();
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

@@ -1,10 +1,16 @@
 import static org.junit.jupiter.api.Assertions.*;
-import java.sql.*;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.Test;
 
-public class userCreationTest {
+import java.sql.*;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import javax.swing.*;
+
+class userCreationTest {
   userCreation userCreation;
   Exception exception;
   String sql;
@@ -19,7 +25,11 @@ public class userCreationTest {
   }
 
   @AfterEach
-  public void tearDown() throws SQLException {
+  public void breakItDown() throws SQLException {
+    sql =
+            "DELETE FROM user where username = 'jtest6'";
+    statement = connection.createStatement();
+    statement.execute(sql);
     userCreation = null;
     exception = null;
     sql = null;
@@ -32,14 +42,15 @@ public class userCreationTest {
   }
 
   @Test
-  public void testSetUsername() throws SQLException {
-    sql =
-            "INSERT INTO user (id, firstname, lastname, username, password) VALUES ('UO007', 'test', 'test', 'john', 'test')";
-    statement = connection.createStatement();
-    statement.execute(sql);
-    userCreation.jButton1ActionPerformed(null); // Sets test to true //
+  public void testInvalidUsername() throws Exception {
+    userCreation.autoID();
+    userCreation.txtuserid.setText(userCreation.txtuserid.getText());
+    userCreation.txtfirstname.setText("jtest6");
+    userCreation.txtlastname.setText("jtest6");
+    userCreation.txtusername.setText("john");
+    userCreation.txtpassword.setText("jtest6");
     assertFalse(userCreation.jButton1ActionPerformed(null));
-    statement.close();
+    
 
     //exception = assertThrows(Exception.class, () -> userCreation.txtusername.getText());
     //assertEquals("User Already Exists, Try a New Username", exception.getMessage());
@@ -49,18 +60,23 @@ public class userCreationTest {
 
 
   @Test
-  public void setNewUsers() throws SQLException {
-    sql =
-            "INSERT INTO user (id, firstname, lastname, username, password) VALUES ('UO007', 'test', 'test', 'test', 'test')";
-    statement = connection.createStatement();
-    statement.execute(sql);
-    userCreation.jButton1ActionPerformed(null); // Sets test to true //
-    assertFalse(userCreation.jButton1ActionPerformed(null));
-    statement.close();
+  void setNewUsers() throws Exception {
+    userCreation.autoID();
+    userCreation.txtuserid.setText(userCreation.txtuserid.getText());
+    userCreation.txtfirstname.setText("jtest6");
+    userCreation.txtlastname.setText("jtest6");
+    userCreation.txtusername.setText("jtest6");
+    userCreation.txtpassword.setText("jtest6");
+    assertTrue(userCreation.jButton1ActionPerformed(null));
   }
 
 
   @Test
-  public void autoID() {
+  void autoID() {
+    userCreation.autoID();
+    String userid = userCreation.txtuserid.toString();
+    assertEquals(userCreation.txtuserid.toString(), userid);
   }
+
+
 }
