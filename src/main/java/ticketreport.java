@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class ticketreport extends javax.swing.JInternalFrame {
 
+
     /**
      * Creates new form ticketreport
      */
@@ -29,6 +31,7 @@ public class ticketreport extends javax.swing.JInternalFrame {
 
     Connection con;
     PreparedStatement pst;
+    ResultSet rs;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,7 +40,7 @@ public class ticketreport extends javax.swing.JInternalFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    public void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -87,10 +90,19 @@ public class ticketreport extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.hide();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+//    public ArrayList loadDataTest() throws SQLException {
+//        ArrayList flightArray = new ArrayList<String>();
+//        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "password");
+//        ResultSet rs = con.createStatement().executeQuery("select flightname from flight;");
+//        while(rs.next()){
+//            flightArray.add(rs.getString(1));
+//        }
+//        return flightArray;
+//    }
 
 
     public void LoadData() {
@@ -98,7 +110,7 @@ public class ticketreport extends javax.swing.JInternalFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "password");
             pst = con.prepareStatement("SELECT * from ticket");
-            ResultSet rs = pst.executeQuery();
+            rs = pst.executeQuery();
 
             ResultSetMetaData rsm = rs.getMetaData();
             int c;
@@ -122,24 +134,19 @@ public class ticketreport extends javax.swing.JInternalFrame {
                 }
 
                 Df.addRow(v2);
-
-
             }
 
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
         }
-
 
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JButton jButton1;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,8 +3,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.Duration;
-
 class LoginTest {
   Login log = new Login();
 
@@ -55,6 +53,14 @@ class LoginTest {
     log.txtuser.setText("john");
     log.txtpass.setText("123");
     assertTrue(log.jButton1ActionPerformed(null));
+  }
+
+  @Test
+  void Test5() throws Exception {
+    log.txtuser.setText("NoUserExist");
+    log.txtpass.setText("NoUserExist");
+    Exception exception = assertThrows(Exception.class, () -> log.jButton1ActionPerformed(null));
+    assertEquals("UserName or Password do not Match", exception.getMessage());
   }
 
   // NF03 Performance Test
