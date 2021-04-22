@@ -38,7 +38,7 @@ class userCreationTest {
   @Test
   public void testSetUsername() throws SQLException {
     sql =
-            "INSERT INTO user (id, firstname, lastname, username, password) VALUES ('UO007', 'test', 'test', 'john', 'test')";
+        "INSERT INTO user (id, firstname, lastname, username, password) VALUES ('UO007', 'test', 'test', 'john', 'test')";
     statement = connection.createStatement();
     statement.execute(sql);
     userCreation.jButton1ActionPerformed(null); // Sets test to true //
@@ -54,14 +54,19 @@ class userCreationTest {
 
   @Test
   void setNewUsers() throws SQLException {
-
-    sql =
-            "INSERT INTO user (id, firstname, lastname, username, password) VALUES ('UO007', 'test', 'test', 'test', 'test')";
-    statement = connection.createStatement();
-    statement.execute(sql);
+//
+//    sql =
+//        "INSERT INTO user (id, firstname, lastname, username, password) VALUES ('UO007', 'test', 'test', 'test', 'test')";
+//    statement = connection.createStatement();
+//    statement.execute(sql);
+    userCreation.autoID();
+    userCreation.txtuserid.setText(userCreation.txtuserid.getText());
+    userCreation.txtfirstname.setText("jtest3");
+    userCreation.txtlastname.setText("jtest3");
+    userCreation.txtusername.setText("jtest3");
+    userCreation.txtpassword.setText("juser3");
     userCreation.jButton1ActionPerformed(null); // Sets test to true //
     assertFalse(userCreation.jButton1ActionPerformed(null));
-    statement.close();
   }
 
 
