@@ -31,7 +31,7 @@ class ticketTest {
   }
 
   /**
-   * Test for Requirement 10
+   * Performance Test for Requirement NF01
    */
   @Test
   void jButton3ActionPerformedTest() {

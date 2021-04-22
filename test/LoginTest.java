@@ -3,6 +3,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+
 class LoginTest {
   Login log = new Login();
 
@@ -53,6 +55,15 @@ class LoginTest {
     log.txtuser.setText("john");
     log.txtpass.setText("123");
     assertTrue(log.jButton1ActionPerformed(null));
+  }
+
+  // NF03 Performance Test
+  // Tests that the system allows access within 2 seconds of loggin in
+  @Test
+  void Test5() throws Exception {
+    log.txtuser.setText("john");
+    log.txtpass.setText("123");
+    assertTimeout(Duration.ofSeconds(2), () -> log.jButton1ActionPerformed(null));
   }
 
 }

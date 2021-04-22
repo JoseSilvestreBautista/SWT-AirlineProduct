@@ -8,9 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class searchCustomerTest {
     searchCustomer sc = new searchCustomer();
 
+    // NF02 Performance Test
+    // Test the db to see if it responds within 1 second
     @Test
     void jButton4ActionPerformedTest() {
-        Assertions.assertTimeout(Duration.ofSeconds(2), () -> sc.jButton4ActionPerformedTest());
+        Assertions.assertTimeout(Duration.ofSeconds(1), () -> sc.jButton4ActionPerformedTest());
     }
 
 }
