@@ -107,14 +107,16 @@ class searchCustomerTest {
   @Test
   public void jButton4ActionPerformedExceptionTest() {
     sc.txtcustid.setText("cs002");
+
     sc.jButton4ActionPerformed(null);
-    assertEquals("john", sc.txtfirstname.getText());
-    assertEquals("pink", sc.txtlastname.getText());
-    assertEquals("34232222", sc.txtnic.getText());
-    assertEquals("3443", sc.txtpassport.getText());
-    assertEquals("1996-06-01", sc.txtdob.toString());
+    assertEquals("Jim", sc.txtfirstname.getText());
+    assertEquals("Jones", sc.txtlastname.getText());
+    assertEquals("34324", sc.txtnic.getText());
+    assertEquals("433", sc.txtpassport.getText());
+    assertEquals("Africa",sc.txtaddress.getText());
+    assertEquals("2019-06-14", sc.txtdob.toString());
     assertEquals("Male", sc.Gender.getText());
-    assertEquals("34324234", sc.txtcontact.toString());
+    assertEquals("3432423", sc.txtcontact.toString());
 
 
 
