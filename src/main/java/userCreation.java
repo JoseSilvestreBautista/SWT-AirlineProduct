@@ -186,8 +186,7 @@ public class userCreation extends javax.swing.JInternalFrame {
 
     public boolean jButton1ActionPerformed(ActionEvent evt){//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-
-        boolean userExists = false;
+        Boolean checkUsername = true;
 
         String id = txtuserid.getText();
         String firstname = txtfirstname.getText();
@@ -197,7 +196,7 @@ public class userCreation extends javax.swing.JInternalFrame {
         try {
             if (getExistingUsers().contains(username)) {
                 JOptionPane.showMessageDialog(null, "User Already Exists, Try a New Username.");
-                userExists = true;
+                checkUsername = false;
             } else {
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
@@ -213,6 +212,7 @@ public class userCreation extends javax.swing.JInternalFrame {
                     pst.setString(5, password);
 
                     pst.executeUpdate();
+                    checkUsername = true;
 
                     JOptionPane.showMessageDialog(null, "User Createdd.........");
                 } catch (ClassNotFoundException ex) {
@@ -224,7 +224,7 @@ public class userCreation extends javax.swing.JInternalFrame {
         }catch (SQLException ex){
             Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return userExists;
+        return checkUsername;
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -272,10 +272,10 @@ public class userCreation extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtfirstname;
-    private javax.swing.JTextField txtlastname;
-    private javax.swing.JPasswordField txtpassword;
-    private javax.swing.JLabel txtuserid;
+    public javax.swing.JTextField txtfirstname;
+    public javax.swing.JTextField txtlastname;
+    public javax.swing.JPasswordField txtpassword;
+    public javax.swing.JLabel txtuserid;
     public javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables
 }
