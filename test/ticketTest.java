@@ -71,8 +71,8 @@ public class ticketTest {
 
   @Test
   public void jTable1MouseClickedTest(){
-    ticket.txtsource.setSelectedItem("India");
-    ticket.txtdepart.setSelectedItem("Uk");
+    ticket.txtsource.setSelectedItem(0);
+    ticket.txtdepart.setSelectedItem(2);
     ticket.jButton3ActionPerformed(null);
     ticket.jTable1MouseClicked(null);
     assertDoesNotThrow(() -> ticket.jTable1MouseClicked(null));
