@@ -1,14 +1,10 @@
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.sql.*;
-import java.util.ArrayList;
-
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-class userCreationTest {
+public class userCreationTest {
   userCreation userCreation;
   Exception exception;
   String sql;
@@ -53,8 +49,7 @@ class userCreationTest {
 
 
   @Test
-  void setNewUsers() throws SQLException {
-
+  public void setNewUsers() throws SQLException {
     sql =
             "INSERT INTO user (id, firstname, lastname, username, password) VALUES ('UO007', 'test', 'test', 'test', 'test')";
     statement = connection.createStatement();
@@ -66,6 +61,6 @@ class userCreationTest {
 
 
   @Test
-  void autoID() {
+  public void autoID() {
   }
 }

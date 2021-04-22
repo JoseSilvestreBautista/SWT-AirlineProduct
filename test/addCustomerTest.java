@@ -1,18 +1,18 @@
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.mockConstruction;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.mockito.Mockito;
 
-class addCustomerTest {
+
+public class addCustomerTest {
 
     addCustomer addCustomer = new addCustomer();
 
@@ -76,7 +76,7 @@ class addCustomerTest {
     }
 
     @Test
-    public void stubImageTest() {
+    public void stubImageTest() throws ParseException {
         // create Mock class
         addCustomer mockCustomer = mock(addCustomer.class);
 
@@ -87,6 +87,10 @@ class addCustomerTest {
         aC.jButton1ActionPerformedTest("images/driverConnectionChanges.png");
 
         // use image to add a customer
+        String date = "2021-04-20";
+        java.util.Date date2 = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+        aC.txtcontact.setText("4342323");
+        aC.txtdob.setDate(date2);
         aC.jButton2ActionPerformed(null);
     }
 

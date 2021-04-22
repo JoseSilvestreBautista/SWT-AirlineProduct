@@ -1,19 +1,9 @@
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
-
+import org.junit.Test;
 import java.time.Duration;
 import org.mockito.Mockito;
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -58,7 +48,7 @@ public class addFlightTest {
 
   // Makes sure that the user has entered data for each argument
   @Test
-  void jButton1ActionPerformed() {
+  public void jButton1ActionPerformed() {
     assertFalse(addfl
         .invalidEntry(id, flightname, source, depart, date, departtime, arrtime, flightcharge));
     assertTrue(addfl

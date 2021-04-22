@@ -36,9 +36,10 @@
             <version>0.8.6</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.jmeter</groupId>
-            <artifactId>ApacheJMeter_junit</artifactId>
-            <version>5.4.1</version>
+            <groupId>com.jupiter-tools</groupId>
+            <artifactId>stress-test</artifactId>
+            <version>0.1</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

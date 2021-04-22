@@ -1,14 +1,10 @@
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-
-import java.awt.event.ActionEvent;
-import java.sql.SQLException;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.mockito.Mockito;
-import org.mockito.internal.matchers.Null;
 
-class MainTest {
+public class MainTest {
 
   Main main = new Main();
 

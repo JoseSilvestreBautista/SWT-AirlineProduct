@@ -1,17 +1,11 @@
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-
-import java.sql.*;
 import java.time.Duration;
-
-import com.mysql.cj.conf.ConnectionUrl;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.mockito.Mockito;
 
-class ticketTest {
+public class ticketTest {
   ticket ticket = new ticket();
 
 
@@ -26,7 +20,7 @@ class ticketTest {
   }
 
   @Test
-  void jButton1ActionPerformedTest() {
+  public void jButton1ActionPerformedTest() {
 
     String positiveIntegers = "Only Enter Positive Integers";
     String maxSeats = "Only 416 Seats Are Available ";
@@ -42,12 +36,12 @@ class ticketTest {
    * Test for Requirement 10
    */
   @Test
-  void jButton3ActionPerformedTest() {
+  public void jButton3ActionPerformedTest() {
     Assertions.assertTimeout(Duration.ofSeconds(2), () -> ticket.jButton3ActionPerformedTest());
   }
 
   @Test
-  void initComponentsTest() {
+  public void initComponentsTest() {
     ticket ticket = mock(ticket.class);
 
     Mockito.doNothing().when(ticket).initComponents();
@@ -64,7 +58,7 @@ class ticketTest {
   }
 
   @Test
-  void autoIDTest() {
+  public void autoIDTest() {
     ticket ticket = new ticket();
     ticket.autoID();
     String tnumber = ticket.txtticketno.toString();
@@ -72,7 +66,7 @@ class ticketTest {
   }
 
   @Test
-  void txtseatsStateChanged() {
+  public void txtseatsStateChanged() {
     ticket.txtprice.setText("1000");
     ticket.txtseats.setValue(5);
 
