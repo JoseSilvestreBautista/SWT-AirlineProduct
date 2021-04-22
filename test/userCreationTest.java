@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
+
 class userCreationTest {
   userCreation userCreation;
   Exception exception;
@@ -23,7 +25,11 @@ class userCreationTest {
   }
 
   @AfterEach
-  public void tearDown() throws SQLException {
+  public void breakItDown() throws SQLException {
+    sql =
+            "DELETE FROM user where username = 'jtest6'";
+    statement = connection.createStatement();
+    statement.execute(sql);
     userCreation = null;
     exception = null;
     sql = null;
@@ -36,14 +42,15 @@ class userCreationTest {
   }
 
   @Test
-  public void testSetUsername() throws SQLException {
-    sql =
-        "INSERT INTO user (id, firstname, lastname, username, password) VALUES ('UO007', 'test', 'test', 'john', 'test')";
-    statement = connection.createStatement();
-    statement.execute(sql);
-    userCreation.jButton1ActionPerformed(null); // Sets test to true //
+  public void testInvalidUsername() throws Exception {
+    userCreation.autoID();
+    userCreation.txtuserid.setText(userCreation.txtuserid.getText());
+    userCreation.txtfirstname.setText("jtest6");
+    userCreation.txtlastname.setText("jtest6");
+    userCreation.txtusername.setText("john");
+    userCreation.txtpassword.setText("jtest6");
     assertFalse(userCreation.jButton1ActionPerformed(null));
-    statement.close();
+    
 
     //exception = assertThrows(Exception.class, () -> userCreation.txtusername.getText());
     //assertEquals("User Already Exists, Try a New Username", exception.getMessage());
@@ -53,24 +60,23 @@ class userCreationTest {
 
 
   @Test
-  void setNewUsers() throws SQLException {
-//
-//    sql =
-//        "INSERT INTO user (id, firstname, lastname, username, password) VALUES ('UO007', 'test', 'test', 'test', 'test')";
-//    statement = connection.createStatement();
-//    statement.execute(sql);
+  void setNewUsers() throws Exception {
     userCreation.autoID();
     userCreation.txtuserid.setText(userCreation.txtuserid.getText());
-    userCreation.txtfirstname.setText("jtest3");
-    userCreation.txtlastname.setText("jtest3");
-    userCreation.txtusername.setText("jtest3");
-    userCreation.txtpassword.setText("juser3");
-    userCreation.jButton1ActionPerformed(null); // Sets test to true //
-    assertFalse(userCreation.jButton1ActionPerformed(null));
+    userCreation.txtfirstname.setText("jtest6");
+    userCreation.txtlastname.setText("jtest6");
+    userCreation.txtusername.setText("jtest6");
+    userCreation.txtpassword.setText("jtest6");
+    assertTrue(userCreation.jButton1ActionPerformed(null));
   }
 
 
   @Test
   void autoID() {
+    userCreation.autoID();
+    String userid = userCreation.txtuserid.toString();
+    assertEquals(userCreation.txtuserid.toString(), userid);
   }
+
+
 }

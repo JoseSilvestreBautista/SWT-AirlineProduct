@@ -88,7 +88,7 @@ public class addFlightTest {
     addfl.txtdtime.setText("7AM");
     addfl.txtarrtime.setText("1PM");
     addfl.txtflightcharge.setText("150");
-    assertTimeout(Duration.ofSeconds(3), () -> addfl.jButton1ActionPerformed(null));
+    assertTimeout(Duration.ofSeconds(5), () -> addfl.jButton1ActionPerformed(null));
   }
 
   // Integration test for db and data input
