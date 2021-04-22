@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -19,6 +18,7 @@ import javax.swing.JOptionPane;
 
 
 public class userCreation extends javax.swing.JInternalFrame {
+
 
     /**
      * Creates new form userCreation
@@ -84,7 +84,11 @@ public class userCreation extends javax.swing.JInternalFrame {
         jButton1.setText("Add");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                try {
+                    jButton1ActionPerformed(evt);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -184,7 +188,7 @@ public class userCreation extends javax.swing.JInternalFrame {
         return Usernames;
     }
 
-    public boolean jButton1ActionPerformed(ActionEvent evt){//GEN-FIRST:event_jButton1ActionPerformed
+    public boolean jButton1ActionPerformed(ActionEvent evt) throws Exception{//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Boolean checkUsername = true;
 
@@ -266,7 +270,7 @@ public class userCreation extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
