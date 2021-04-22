@@ -462,7 +462,7 @@ return jbutton2;
 
     public boolean jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
             // TODO add your handling code here:
-            String id = "";
+            String id = txtcustid.getText();
             Boolean customerFound = true;
 
             try {
@@ -472,7 +472,7 @@ return jbutton2;
                 pst.setString(1, id);
                 ResultSet rs = pst.executeQuery();
 
-                if (rs.next() == false) {
+                if (!rs.next()) {
                     JOptionPane.showMessageDialog(this, "Record not Found");
                     customerFound = false;
                 } else {
@@ -507,20 +507,13 @@ return jbutton2;
                     txtdob.setDate(date1);
                     txtphoto.setIcon(newImage);
 
-                    String firstname = txtfirstname.getText();
-
                 }
 
-
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ParseException ex) {
+            } catch (ClassNotFoundException | ParseException | SQLException ex) {
                 Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-return customerFound;
+        return customerFound;
     }//GEN-LAST:event_jButton4ActionPerformed
 
 

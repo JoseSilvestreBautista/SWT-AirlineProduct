@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 class addCustomerTest {
+
     addCustomer addCustomer = new addCustomer();
 
     @Test
@@ -57,7 +58,7 @@ class addCustomerTest {
     byte[] testImage;
 
 
-    @Test
+    @BeforeEach
     public void jButton2ActionPerformedtest() {
         //initialize the fields for jButton2ActionPerformed
         aC.txtfirstname.setText("test");
@@ -71,7 +72,7 @@ class addCustomerTest {
         aC.txtcontact.setText("0");
 
         //initialize the jButton1ActionPerformedTest test Image
-        aC.jButton2ActionPerformed(null);
+        aC.jButton1ActionPerformed(null);
     }
 
     @Test
