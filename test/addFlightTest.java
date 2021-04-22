@@ -76,6 +76,7 @@ public class addFlightTest {
     assertTrue(addfl.invalidEntry(id, flightname, source, depart, date, departtime, arrtime, ""));
   }
 
+  // NF04 Performance Test
   // Test the db to see if it responds within 2 seconds
   @Test
   public void dbTest() {
@@ -88,7 +89,7 @@ public class addFlightTest {
     addfl.txtdtime.setText("7AM");
     addfl.txtarrtime.setText("1PM");
     addfl.txtflightcharge.setText("150");
-    assertTimeout(Duration.ofSeconds(5), () -> addfl.jButton1ActionPerformed(null));
+    assertTimeout(Duration.ofSeconds(2), () -> addfl.jButton1ActionPerformed(null));
   }
 
   // Integration test for db and data input

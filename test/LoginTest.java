@@ -4,6 +4,8 @@ import static org.mockito.Mockito.verify;
 
 import com.mysql.cj.log.Log;
 import java.sql.DriverManager;
+import java.time.Duration;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -68,6 +70,15 @@ class LoginTest {
     log.txtpass.setText("NoUserExist");
     Exception exception = assertThrows(Exception.class, () -> log.jButton1ActionPerformed(null));
     assertEquals("UserName or Password do not Match", exception.getMessage());
+  }
+
+  // NF03 Performance Test
+  // Tests that the system allows access within 2 seconds of loggin in
+  @Test
+  void Test6() throws Exception {
+    log.txtuser.setText("john");
+    log.txtpass.setText("123");
+    assertTimeout(Duration.ofSeconds(2), () -> log.jButton1ActionPerformed(null));
   }
 
 }
