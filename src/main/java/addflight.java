@@ -234,6 +234,9 @@ public class addflight extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
+    /**
+     * Obtains the next ID of the flight from database
+     */
     public void autoID() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -262,10 +265,16 @@ public class addflight extends javax.swing.JInternalFrame {
 
     }
 
-
+    /**
+     * Creates flight using information from
+     * txtflightid, txtflightname, txtsource,
+     * txtdepart, txtdate, txtdtime, txtarrtime,
+     * txtflightcharge
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     * @return - String
+     */
     public String jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-
         String id = txtflightid.getText();
         String flightname = txtflightname.getText();
 
@@ -302,7 +311,7 @@ public class addflight extends javax.swing.JInternalFrame {
             pst.executeUpdate();
 
 
-            JOptionPane.showMessageDialog(null, "Flight Created.........");
+            JOptionPane.showMessageDialog(null, "Flight Created");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -311,13 +320,28 @@ public class addflight extends javax.swing.JInternalFrame {
         return "";
     }//GEN-LAST:event_jButton1ActionPerformed
 
-
+    /**
+     * Closes addflight window when button is pressed
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-
         this.hide();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Determines if the parameters are invalid
+     *
+     * @param id - id of the flight
+     * @param flightname - name of the flight
+     * @param source - source location of the flight
+     * @param depart - depart location of the flight
+     * @param date - date of the flight
+     * @param departtime - depart time of the flight
+     * @param arrtime - arrival time of the flight
+     * @param flightcharge - charge of the flight
+     * @return - boolean that is false if there is an invalid parameter
+     */
     public boolean invalidEntry(String id,
         String flightname,
         String source,

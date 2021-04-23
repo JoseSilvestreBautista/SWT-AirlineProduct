@@ -387,6 +387,9 @@ public class addCustomer extends javax.swing.JInternalFrame {
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
+  /**
+   * Gets the next ID available for customer from the database
+   */
   public void autoID() {
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
@@ -411,16 +414,31 @@ public class addCustomer extends javax.swing.JInternalFrame {
     }
   }
 
+  /**
+   * Called when txtlastname is changed
+   *
+   * @param evt - default ActionEvent parameter for GUI
+   */
   private void txtlastnameActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlastnameActionPerformed
     // TODO add your handling code here:
   }//GEN-LAST:event_txtlastnameActionPerformed
 
+  /**
+   * Called when txtpassport changes
+   *
+   * @param evt - default ActionEvent parameter for GUI
+   */
   private void txtpassportActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpassportActionPerformed
-    // TODO add your handling code here:
   }//GEN-LAST:event_txtpassportActionPerformed
 
+  /**
+   *  Converts path to image into ByteArrayOutputStream
+   *
+   * @param path - path to image
+   * @return - image stored as ByteArrayOutputStream
+   */
   public ByteArrayOutputStream makeByteArray(String path){
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     try {
@@ -438,6 +456,11 @@ public class addCustomer extends javax.swing.JInternalFrame {
     return baos;
   }
 
+  /**
+   * Allows the user to select an image for userimage
+   *
+   * @param evt - default ActionEvent parameter for GUI
+   */
   public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
@@ -462,16 +485,29 @@ public class addCustomer extends javax.swing.JInternalFrame {
     }
   }//GEN-LAST:event_jButton1ActionPerformed
 
+  /**
+   * Finds userimage using input path
+   *
+   * @param path - path to userimage for profile picture
+   * @return - userimage
+   */
   public byte[] jButton1ActionPerformedTest(String path) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
     userimage = makeByteArray(path).toByteArray();
     return userimage;
   }//GEN-LAST:event_jButton1ActionPerformed
 
+  /**
+   * Adds a customer to the database
+   * with information from txtid,
+   * txtfirstname, txtlastname
+   * txtnic, txtpassport
+   * txtaddress and userimage
+   *
+   * @param evt - default ActionEvent parameter for GUI
+   */
   public void jButton2ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    // TODO add your handling code here:
-
     String id = txtid.getText();
     String firstname = txtfirstname.getText();
     String lastname = txtlastname.getText();
@@ -526,6 +562,13 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
   }//GEN-LAST:event_jButton2ActionPerformed
 
+  /**
+   * Determines if the genders match
+   *
+   * @param r1genderSelected - first gender
+   * @param r2genderSelected - second gender
+   * @return - false if parameters match
+   */
   public Boolean genderOption(Boolean r1genderSelected, Boolean r2genderSelected) {
     // adding code to test the function of the GUI
     Boolean testChoice = false;
@@ -543,10 +586,13 @@ public class addCustomer extends javax.swing.JInternalFrame {
     return testChoice;
   }
 
+  /**
+   * Closes addCustomer when pressed
+   *
+   * @param evt - default ActionEvent parameter for GUI
+   */
   private void jButton3ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    // TODO add your handling code here:
-
     this.hide();
   }//GEN-LAST:event_jButton3ActionPerformed
 

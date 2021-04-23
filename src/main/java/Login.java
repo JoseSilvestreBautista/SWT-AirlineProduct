@@ -148,9 +148,15 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Determines whether the input username and password are valid
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     * @return - boolean based on whether the database query is executed successfully
+     * @throws Exception - throws if username or password is blank
+     */
     public boolean jButton1ActionPerformed(java.awt.event.ActionEvent evt)
         throws Exception {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
 
         String username = txtuser.getText();
         String password = txtpass.getText();
@@ -199,6 +205,8 @@ public class Login extends javax.swing.JFrame {
 
 
     /**
+     * The main function - this is where the program starts
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
