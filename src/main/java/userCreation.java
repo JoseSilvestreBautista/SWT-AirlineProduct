@@ -177,6 +177,13 @@ public class userCreation extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+    /**
+     * Retrieves users from the database and inserts them into an array
+     *
+     * @return - returns an ArrayList of existing users
+     * @throws SQLException
+     */
     public ArrayList getExistingUsers() throws SQLException {
         ArrayList Usernames = new ArrayList<String>();
         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "password");
@@ -187,7 +194,14 @@ public class userCreation extends javax.swing.JInternalFrame {
         return Usernames;
     }
 
-    public boolean jButton1ActionPerformed(ActionEvent evt) throws Exception{//GEN-FIRST:event_jButton1ActionPerformed
+    /**
+     * Checks if username is available and creates the user if it is
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     * @return boolean - returns whether the username in txtusername is available or not
+     * @throws Exception
+     */
+    public boolean jButton1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Boolean checkUsername = true;
 
@@ -217,7 +231,7 @@ public class userCreation extends javax.swing.JInternalFrame {
                     pst.executeUpdate();
                     checkUsername = true;
 
-                    JOptionPane.showMessageDialog(null, "User Createdd.........");
+                    JOptionPane.showMessageDialog(null, "User Created");
                 } catch (ClassNotFoundException | SQLException ex) {
                     Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -228,13 +242,19 @@ public class userCreation extends javax.swing.JInternalFrame {
         return checkUsername;
     }//GEN-LAST:event_jButton1ActionPerformed
 
-
+    /**
+     * Closes the current window when jButton2 is pressed
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.hide();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-
+    /**
+     * Grab user ID and set txtuserid to the value in the database
+     */
     public void autoID() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

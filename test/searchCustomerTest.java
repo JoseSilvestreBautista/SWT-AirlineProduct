@@ -73,7 +73,7 @@ public class searchCustomerTest {
     // Test the db to see if it responds within 1 second
     @Test
     void jButton4ActionPerformedTest() {
-        Assertions.assertTimeout(Duration.ofSeconds(1), () -> sc.jButton4ActionPerformedTest());
+        Assertions.assertTimeout(Duration.ofSeconds(1), () -> sc.searchExistingUsers());
     }
   @Test
   public void searchExistingUsers() {
@@ -118,7 +118,7 @@ public class searchCustomerTest {
   // NF02 Performance Test
   // Test the db to see if it responds within 1 second
   @Test
-  public void jButton4ActionPerformedTest() {
+  public void jButton4ActionPerformanceTest() {
     Assertions.assertTimeout(Duration.ofSeconds(1), () -> sc.jButton4ActionPerformed(null));
   }
 }
