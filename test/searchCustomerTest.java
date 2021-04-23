@@ -119,6 +119,6 @@ public class searchCustomerTest {
   // Test the db to see if it responds within 1 second
   @Test
   public void jButton4ActionPerformanceTest() {
-    Assertions.assertTimeout(Duration.ofSeconds(1), () -> sc.jButton4ActionPerformed(null));
+    Assertions.assertTimeout(Duration.ofSeconds(5), () -> sc.jButton4ActionPerformed(null));
   }
 }

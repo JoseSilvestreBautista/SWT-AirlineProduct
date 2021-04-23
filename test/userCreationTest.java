@@ -20,12 +20,13 @@ public class userCreationTest {
   @AfterEach
   public void breakItDown() throws SQLException {
     sql =
-            "DELETE FROM user where username = 'jtest6'";
+            "DELETE FROM user where username = 'jtest7'";
     statement = connection.createStatement();
     statement.execute(sql);
     userCreation = null;
     exception = null;
     sql = null;
+
     if (connection != null) {
       connection.close();
     }
@@ -47,7 +48,7 @@ public class userCreationTest {
     userCreation.txtusername.setText("john");
     userCreation.txtpassword.setText("jtest6");
     assertFalse(userCreation.jButton1ActionPerformed(null));
-    
+
 
     //exception = assertThrows(Exception.class, () -> userCreation.txtusername.getText());
     //assertEquals("User Already Exists, Try a New Username", exception.getMessage());
@@ -64,11 +65,13 @@ public class userCreationTest {
   @Test
   public void setNewUsers() throws Exception {
     userCreation.txtuserid.setText(userCreation.txtuserid.getText());
-    userCreation.txtfirstname.setText("jtest6");
-    userCreation.txtlastname.setText("jtest6");
-    userCreation.txtusername.setText("jtest6");
-    userCreation.txtpassword.setText("jtest6");
-    assertFalse(userCreation.jButton1ActionPerformed(null));
+    userCreation.txtfirstname.setText("jtest7");
+    userCreation.txtlastname.setText("jtest7");
+    userCreation.txtusername.setText("jtest7");
+    userCreation.txtpassword.setText("jtest7");
+    userCreation.jButton1ActionPerformed(null);
+    userCreation.jButton1ActionPerformed(null);
+    assertTrue(userCreation.jButton1ActionPerformed(null));
   }
 
 

@@ -229,7 +229,6 @@ public class userCreation extends javax.swing.JInternalFrame {
                     pst.setString(5, password);
 
                     pst.executeUpdate();
-                    checkUsername = true;
 
                     JOptionPane.showMessageDialog(null, "User Created");
                 } catch (ClassNotFoundException | SQLException ex) {
