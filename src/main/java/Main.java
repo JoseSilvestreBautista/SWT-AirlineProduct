@@ -142,6 +142,11 @@ public class Main extends javax.swing.JFrame {
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
+  /**
+   * Opens addCustomer when clicked
+   *
+   * @param evt
+   */
   public void jMenuItem1ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
     // TODO add your handling code here:
@@ -152,6 +157,11 @@ public class Main extends javax.swing.JFrame {
 
   }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+  /**
+   * Opens searchCustomer pane when clicked
+   *
+   * @param evt - default ActionEvent parameter for GUI
+   */
   public void jMenuItem2ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
     // TODO add your handling code here:
@@ -163,6 +173,11 @@ public class Main extends javax.swing.JFrame {
 
   }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+  /**
+   * Opens addflight pane when clicked
+   *
+   * @param evt - default ActionEvent parameter for GUI
+   */
   public void jMenuItem4ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
     // TODO add your handling code here:
@@ -172,6 +187,11 @@ public class Main extends javax.swing.JFrame {
 
   }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+  /**
+   * Opens ticket pane when clicked
+   *
+   * @param evt - default ActionEvent parameter for GUI
+   */
   public void jMenuItem3ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
     // TODO add your handling code here:
@@ -181,9 +201,13 @@ public class Main extends javax.swing.JFrame {
 
   }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+  /**
+   * Opens ticketreport pane when clicked
+   *
+   * @param evt - default ActionEvent parameter for GUI
+   */
   public void jMenuItem6ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-    // TODO add your handling code here:
 
     ticketreport ti = new ticketreport();
     jDesktopPane1.add(ti);
@@ -192,9 +216,13 @@ public class Main extends javax.swing.JFrame {
 
   }//GEN-LAST:event_jMenuItem6ActionPerformed
 
+  /**
+   * Opens userCreation pane when clicked
+   *
+   * @param evt - default ActionEvent parameter for GUI
+   */
   public void jMenuItem5ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-    // TODO add your handling code here:
 
     userCreation u = new userCreation();
     jDesktopPane1.add(u);
@@ -204,6 +232,8 @@ public class Main extends javax.swing.JFrame {
   }//GEN-LAST:event_jMenuItem5ActionPerformed
 
   /**
+   * Main function - this is where the program starts
+   *
    * @param args the command line arguments
    */
   public static void main(String args[]) {
