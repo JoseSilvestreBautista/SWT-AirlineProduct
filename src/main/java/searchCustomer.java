@@ -339,15 +339,32 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
         pack();
     }//
+
+    /**
+     * Called when txtlastname changes
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     */
     private void txtlastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlastnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtlastnameActionPerformed
 
+    /**
+     * Called when txtpassport changes
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     */
     private void txtpassportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpassportActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpassportActionPerformed
 
-
+    /**
+     * The user can choose a picture to upload when the button is pressed
+     * to set as his or her icon
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     * @return - boolean value that returns true if completed successfully
+     */
     public boolean jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Boolean baosTest = false;
         try {
@@ -383,6 +400,15 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 return baosTest;
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Changes user information by updating the database
+     * with information in fields txtcustid, txtfirstname,
+     * txtlastname, txtnic,txtpassport, txtaddress, txtdob,
+     * and gender
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     * @return - boolean value that returns true if completed successfully
+     */
     public boolean jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Boolean jbutton2 = false;
 
@@ -439,17 +465,21 @@ return baosTest;
 return jbutton2;
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Closes searchCustomer window when pressed
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-
         this.hide();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    public static Boolean testSearchTime(String testid){
-        //testing the time it takes to pull the search from the database
-
-        return false;
-    }
+    /**
+     * Searches the database for existing users
+     *
+     * @return - returns an ArrayList of existing customer first names
+     * @throws SQLException - returns an exception if there is an error with the database
+     */
     public ArrayList searchExistingUsers() throws SQLException {
         ArrayList customerfName = new ArrayList<String>();
         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "password");
@@ -460,6 +490,12 @@ return jbutton2;
         return customerfName;
     }
 
+    /**
+     * Searches for customers in the database using txtcustid
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     * @return - returns a boolean based on whether the customer was found
+     */
     public boolean jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
             // TODO add your handling code here:
             String id = txtcustid.getText();
