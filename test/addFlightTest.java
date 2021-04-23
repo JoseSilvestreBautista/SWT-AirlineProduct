@@ -1,19 +1,9 @@
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
-
+import org.junit.Test;
 import java.time.Duration;
 import org.mockito.Mockito;
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -58,7 +48,7 @@ public class addFlightTest {
 
   // Makes sure that the user has entered data for each argument
   @Test
-  void jButton1ActionPerformed() {
+  public void jButton1ActionPerformed() {
     assertFalse(addfl
         .invalidEntry(id, flightname, source, depart, date, departtime, arrtime, flightcharge));
     assertTrue(addfl
@@ -76,6 +66,7 @@ public class addFlightTest {
     assertTrue(addfl.invalidEntry(id, flightname, source, depart, date, departtime, arrtime, ""));
   }
 
+  // NF04 Performance Test
   // Test the db to see if it responds within 2 seconds
   @Test
   public void dbTest() {
@@ -88,7 +79,7 @@ public class addFlightTest {
     addfl.txtdtime.setText("7AM");
     addfl.txtarrtime.setText("1PM");
     addfl.txtflightcharge.setText("150");
-    assertTimeout(Duration.ofSeconds(5), () -> addfl.jButton1ActionPerformed(null));
+    assertTimeout(Duration.ofSeconds(2), () -> addfl.jButton1ActionPerformed(null));
   }
 
   // Integration test for db and data input

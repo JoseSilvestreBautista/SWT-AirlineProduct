@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.jupiter-tools:stress-test:0.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jupiter-tools/stress-test/0.1/stress-test-0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jupiter-tools/stress-test/0.1/stress-test-0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jupiter-tools/stress-test/0.1/stress-test-0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

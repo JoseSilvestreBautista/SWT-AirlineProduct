@@ -1,18 +1,11 @@
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-
-import java.sql.*;
 import java.time.Duration;
-
-import com.mysql.cj.conf.ConnectionUrl;
-import javax.swing.JOptionPane;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.mockito.Mockito;
 
-class ticketTest {
+public class ticketTest {
 
   ticket ticket = new ticket();
 
@@ -28,7 +21,7 @@ class ticketTest {
   }
 
   @Test
-  void jButton1ActionPerformedTest() {
+  public void jButton1ActionPerformedTest() {
 
     String positiveIntegers = "Only Enter Positive Integers";
     String maxSeats = "Only 416 Seats Are Available ";
@@ -60,14 +53,14 @@ class ticketTest {
    * Performance Test for Requirement NF01
    */
   @Test
-  void jButton3ActionPerformedTest() {
+  public void jButton3ActionPerformedTest() {
     ticket.txtsource.setSelectedItem("India");
     ticket.txtdepart.setSelectedItem("Uk");
     Assertions.assertTimeout(Duration.ofSeconds(2), () -> ticket.jButton3ActionPerformed(null));
   }
 
   @Test
-  void jButton4ActionPerformedTest() {
+  public void jButton4ActionPerformedTest() {
     ticket.txtcustid.setText("cs001");
     ticket.jButton4ActionPerformed(null);
     assertEquals("john",ticket.txtfirstname.getText());
@@ -77,9 +70,9 @@ class ticketTest {
   }
 
   @Test
-  void jTable1MouseClickedTest(){
-    ticket.txtsource.setSelectedItem("India");
-    ticket.txtdepart.setSelectedItem("Uk");
+  public void jTable1MouseClickedTest(){
+    ticket.txtsource.setSelectedItem(0);
+    ticket.txtdepart.setSelectedItem(2);
     ticket.jButton3ActionPerformed(null);
     ticket.jTable1MouseClicked(null);
     assertDoesNotThrow(() -> ticket.jTable1MouseClicked(null));
@@ -91,7 +84,7 @@ class ticketTest {
   }
 
   @Test
-  void initComponentsTest() {
+  public void initComponentsTest() {
     ticket ticket = mock(ticket.class);
 
     Mockito.doNothing().when(ticket).initComponents();
@@ -108,7 +101,7 @@ class ticketTest {
   }
 
   @Test
-  void autoIDTest() {
+  public void autoIDTest() {
     ticket ticket = new ticket();
     ticket.autoID();
     String tnumber = ticket.txtticketno.toString();
@@ -116,7 +109,7 @@ class ticketTest {
   }
 
   @Test
-  void txtseatsStateChanged() {
+  public void txtseatsStateChanged() {
     ticket.txtprice.setText("1000");
     ticket.txtseats.setValue(5);
 

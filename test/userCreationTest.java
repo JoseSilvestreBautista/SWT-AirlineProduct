@@ -1,17 +1,11 @@
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.sql.*;
-import java.util.ArrayList;
-
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import javax.swing.*;
-
-class userCreationTest {
-  userCreation userCreation;
+public class userCreationTest {
+  userCreation userCreation = new userCreation();
   Exception exception;
   String sql;
   Connection connection;
@@ -21,7 +15,6 @@ class userCreationTest {
   public void setupDB() throws Exception {
     Class.forName("com.mysql.cj.jdbc.Driver");
     connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/airline", "root", "password");
-    userCreation = new userCreation();
   }
 
   @AfterEach
@@ -43,7 +36,6 @@ class userCreationTest {
 
   @Test
   public void testInvalidUsername() throws Exception {
-    userCreation.autoID();
     userCreation.txtuserid.setText(userCreation.txtuserid.getText());
     userCreation.txtfirstname.setText("jtest6");
     userCreation.txtlastname.setText("jtest6");
@@ -60,20 +52,18 @@ class userCreationTest {
 
 
   @Test
-  void setNewUsers() throws Exception {
-    userCreation.autoID();
+  public void setNewUsers() throws Exception {
     userCreation.txtuserid.setText(userCreation.txtuserid.getText());
     userCreation.txtfirstname.setText("jtest6");
     userCreation.txtlastname.setText("jtest6");
     userCreation.txtusername.setText("jtest6");
     userCreation.txtpassword.setText("jtest6");
-    assertTrue(userCreation.jButton1ActionPerformed(null));
+    assertFalse(userCreation.jButton1ActionPerformed(null));
   }
 
 
   @Test
-  void autoID() {
-    userCreation.autoID();
+  public void autoID() {
     String userid = userCreation.txtuserid.toString();
     assertEquals(userCreation.txtuserid.toString(), userid);
   }

@@ -9,7 +9,7 @@ public class GUI_Test
   private FrameFixture window;
 
   @Before
-  public void setUp() {
+  public void setup() {
     Main frame = GuiActionRunner.execute(() -> new Main());
     window = new FrameFixture(frame);
     window.show(); // shows the frame to test

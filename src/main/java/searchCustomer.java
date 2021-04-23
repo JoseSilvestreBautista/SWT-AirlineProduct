@@ -490,8 +490,8 @@ return jbutton2;
                     byte[] _imagebytes = blob.getBytes(1, (int) blob.length());
                     ImageIcon image = new ImageIcon(_imagebytes);
                     Image im = image.getImage();
-                    Image myImg = im.getScaledInstance(txtphoto.getWidth(), txtphoto.getHeight(), Image.SCALE_SMOOTH);
-                    ImageIcon newImage = new ImageIcon(myImg);
+                    //Image myImg = im.getScaledInstance(txtphoto.getWidth(), txtphoto.getHeight(), Image.SCALE_SMOOTH);
+                    //ImageIcon newImage = new ImageIcon(myImg);
                     customerFound = true;
 
 
@@ -505,7 +505,7 @@ return jbutton2;
                     txtaddress.setText(address.trim());
                     txtcontact.setText(contact.trim());
                     txtdob.setDate(date1);
-                    txtphoto.setIcon(newImage);
+                    //txtphoto.setIcon(newImage);
 
                 }
 
