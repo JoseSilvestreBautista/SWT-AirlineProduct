@@ -424,9 +424,13 @@ public class ticket extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Updates jTable1 based on txtsource and txtdepart
+     * by pulling information from the database
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     */
     public void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        
         String source = txtsource.getSelectedItem().toString().trim();
         String depart = txtdepart.getSelectedItem().toString().trim();
 
@@ -476,7 +480,10 @@ public class ticket extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    
+    /**
+     * Obtains ticket ID from database
+     * and sets ticket ID to txtticketno
+     */
      public void autoID()
     {
         try {
@@ -507,11 +514,16 @@ public class ticket extends javax.swing.JInternalFrame {
 
 
     }
-    
 
-    
+
+    /**
+     * Obtains customer record from the database
+     * if found then displays it in
+     * txtfirstname, txtlastname, and txtpassport
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     */
     public void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
           String id = txtcustid.getText();
         
         
@@ -553,9 +565,13 @@ public class ticket extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    /**
+     * Updates flightno, flightname, txtdept, and txtprice
+     * when jTable1 has a MouseEvent
+     *
+     * @param evt - default MouseEvent parameter to detect mouse click
+     */
     public void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-        
        DefaultTableModel Df = (DefaultTableModel)jTable1.getModel();
        
        int selectIndex = jTable1.getSelectedRow();
@@ -568,9 +584,13 @@ public class ticket extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jTable1MouseClicked
 
+    /**
+     * Updates txttotal by multiplying the values of txtprice and txtseats
+     * when txtseats is updated
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     */
     public void txtseatsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_txtseatsStateChanged
-        // TODO add your handling code here:
-        
         int price = Integer.parseInt(txtprice.getText());
         int qty = Integer.parseInt(txtseats.getValue().toString());
         
@@ -582,8 +602,14 @@ public class ticket extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_txtseatsStateChanged
 
+    /**
+     * Checks if txtseats is within allowed values and
+     * if it is then inserts ticket into database
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     * @return - returns a string based on whether the ticket was successfully booked
+     */
     public String jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         
          String ticketid = txtticketno.getText();
          String flightid = flightno.getText();     
@@ -634,7 +660,11 @@ public class ticket extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-
+    /**
+     * Closes ticket window when pressed
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     */
     public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 

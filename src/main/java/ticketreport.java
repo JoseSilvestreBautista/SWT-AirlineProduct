@@ -90,6 +90,11 @@ public class ticketreport extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Closes ticketreport window when pressed
+     *
+     * @param evt - default ActionEvent parameter for GUI
+     */
     public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.hide();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -104,7 +109,9 @@ public class ticketreport extends javax.swing.JInternalFrame {
 //        return flightArray;
 //    }
 
-
+    /**
+     * Loads ticket data from database
+     */
     public void LoadData() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
