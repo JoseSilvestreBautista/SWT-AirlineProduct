@@ -34,6 +34,11 @@ public class userCreationTest {
     }
   }
 
+  /**
+   * asserts user creation failure with data provided
+   *
+   * @throws Exception - database exception
+   */
   @Test
   public void testInvalidUsername() throws Exception {
     userCreation.txtuserid.setText(userCreation.txtuserid.getText());
@@ -51,6 +56,11 @@ public class userCreationTest {
   }
 
 
+  /**
+   * asserts user creation failure with data provided
+   *
+   * @throws Exception - database exception
+   */
   @Test
   public void setNewUsers() throws Exception {
     userCreation.txtuserid.setText(userCreation.txtuserid.getText());
@@ -62,6 +72,9 @@ public class userCreationTest {
   }
 
 
+  /**
+   * Grabs the next user ID from database
+   */
   @Test
   public void autoID() {
     String userid = userCreation.txtuserid.toString();

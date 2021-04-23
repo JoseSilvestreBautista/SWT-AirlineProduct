@@ -10,6 +10,9 @@ public class ticketTest {
   ticket ticket = new ticket();
 
 
+  /**
+   * asserts that seats times price is equal to 5000
+   */
   @Test
   public void testPostive() {
     ticket.txtprice.setText("1000");
@@ -20,6 +23,9 @@ public class ticketTest {
     assertEquals("5000", tot);
   }
 
+  /**
+   * asserts that ticket seats are within the correct value
+   */
   @Test
   public void jButton1ActionPerformedTest() {
 
@@ -59,6 +65,9 @@ public class ticketTest {
     Assertions.assertTimeout(Duration.ofSeconds(2), () -> ticket.jButton3ActionPerformed(null));
   }
 
+  /**
+   * asserts that ticket values are equal to the static values
+   */
   @Test
   public void jButton4ActionPerformedTest() {
     ticket.txtcustid.setText("cs001");
@@ -69,6 +78,9 @@ public class ticketTest {
 
   }
 
+  /**
+   * asserts that the function called when clicking jTable1 does not throw an error
+   */
   @Test
   public void jTable1MouseClickedTest(){
     ticket.txtsource.setSelectedItem(0);
@@ -83,6 +95,9 @@ public class ticketTest {
 
   }
 
+  /**
+   * verifies that the components and ID are initialized correctly
+   */
   @Test
   public void initComponentsTest() {
     ticket ticket = mock(ticket.class);
@@ -100,6 +115,9 @@ public class ticketTest {
     }
   }
 
+  /**
+   * asserts that the ticket id is equal to the new ticket id
+   */
   @Test
   public void autoIDTest() {
     ticket ticket = new ticket();
@@ -108,6 +126,9 @@ public class ticketTest {
     assertEquals(ticket.txtticketno.toString(), tnumber);
   }
 
+  /**
+   * asserts that the total is equal to seats times price
+   */
   @Test
   public void txtseatsStateChanged() {
     ticket.txtprice.setText("1000");
