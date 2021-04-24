@@ -16,6 +16,10 @@ public class addCustomerTest {
 
     addCustomer addCustomer = new addCustomer();
 
+    /**
+     * Asserts that male and female
+     * cannot be chosen at the same time
+     */
     @Test
     public void genderChosenTest() {
 
@@ -28,6 +32,11 @@ public class addCustomerTest {
         assertEquals(false, test3);
     }
 
+    /**
+     * Asserts that the autoID
+     * obtains the next available ID
+     * for creation of a new user
+     */
     @Test
     public void autoIDTest(){
         addCustomer addCustomer = new addCustomer();
@@ -37,6 +46,12 @@ public class addCustomerTest {
 
     }
 
+    /**
+     * Creates a mock of addflight
+     * and verifies that the behavior
+     * when initializing components
+     * and autoID are correct
+     */
     @Test
     public void initComponentsTest(){
         addCustomer addCustomer = mock(addCustomer.class);
@@ -58,6 +73,9 @@ public class addCustomerTest {
     byte[] testImage;
 
 
+    /**
+     * Sets up addCustomer before each test
+     */
     @BeforeEach
     public void jButton2ActionPerformedtest() {
         //initialize the fields for jButton2ActionPerformed
@@ -75,6 +93,13 @@ public class addCustomerTest {
         aC.jButton1ActionPerformed(null);
     }
 
+    /**
+     * Creates mock fo addCustomer and
+     * tests that the image is added to
+     * the customer provided
+     *
+     * @throws ParseException - catch parsing exception
+     */
     @Test
     public void stubImageTest() throws ParseException {
         // create Mock class

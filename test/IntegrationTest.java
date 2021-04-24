@@ -16,7 +16,9 @@ public class IntegrationTest {
   Main main = new Main();
   ticketreport tr = new ticketreport();
 
-
+  /**
+   * Sets up addCustomer before each test
+   */
   @BeforeEach
   public void setUp() {
     //initialize the fields for jButton2ActionPerformed
@@ -34,6 +36,13 @@ public class IntegrationTest {
     testImage = aC.makeByteArray("images/driverConnectionChanges.png").toByteArray();
   }
 
+  /**
+   * Creates mock fo addCustomer and
+   * tests that the image is added to
+   * the customer provided
+   *
+   * @throws ParseException - catch parsing exception
+   */
   @Test
   public void stubImageTest() throws ParseException {
     // create Mock class
@@ -53,6 +62,12 @@ public class IntegrationTest {
     aC.jButton2ActionPerformed(null);
   }
 
+  /**
+   * Creates a mock of addflight
+   * and verifies that the behavior
+   * when initializing components
+   * is correct
+   */
   @Test
   public void initComponents() {
     addflight flight = new addflight();
@@ -69,6 +84,13 @@ public class IntegrationTest {
     }
   }
 
+  /**
+   * Creates a mock to handle main
+   * and verifies that jMenuItem1
+   * behaves correctly
+   * after jMenuItem1ActionPerformed
+   * is executed
+   */
   @Test
   public void jMenuItem1ActionPerformed() throws Exception {
     main.initComponents();
@@ -85,8 +107,14 @@ public class IntegrationTest {
     }
   }
 
+  /**
+   * Creates a mock to handle main
+   * and verifies that jMenuItem1
+   * behaves correctly
+   * after jMenuItem2ActionPerformed
+   * is executed
+   */
   @Test
-
   public void jMenuItem2ActionPerformed() throws Exception {
     main.jMenuItem2ActionPerformed(null);
     Main main = Mockito.mock(Main.class);
@@ -101,6 +129,13 @@ public class IntegrationTest {
     }
   }
 
+  /**
+   * Creates a mock to handle main
+   * and verifies that jMenuItem1
+   * behaves correctly
+   * after jMenuItem3ActionPerformed
+   * is executed
+   */
   @Test
   public void jMenuItem3ActionPerformed() throws Exception {
     main.jMenuItem3ActionPerformed(null);
@@ -116,6 +151,13 @@ public class IntegrationTest {
     }
   }
 
+  /**
+   * Creates a mock to handle main
+   * and verifies that jMenuItem1
+   * behaves correctly
+   * after jMenuItem4ActionPerformed
+   * is executed
+   */
   @Test
   public void jMenuItem4ActionPerformed() throws Exception {
     main.jMenuItem4ActionPerformed(null);
@@ -131,6 +173,13 @@ public class IntegrationTest {
     }
   }
 
+  /**
+   * Creates a mock to handle main
+   * and verifies that jMenuItem1
+   * behaves correctly
+   * after jMenuItem5ActionPerformed
+   * is executed
+   */
   @Test
   public void jMenuItem5ActionPerformed() throws Exception {
     main.jMenuItem5ActionPerformed(null);
@@ -146,6 +195,13 @@ public class IntegrationTest {
     }
   }
 
+  /**
+   * Creates a mock to handle main
+   * and verifies that jMenuItem1
+   * behaves correctly
+   * after jMenuItem6ActionPerformed
+   * is executed
+   */
   @Test
   public void jMenuItem6ActionPerformed() throws Exception {
     main.jMenuItem6ActionPerformed(null);
@@ -161,6 +217,11 @@ public class IntegrationTest {
     }
   }
 
+  /**
+   * Creates a mock of ticketreport
+   * and verifies that the behavior
+   * of jButton1 is correct when pressed
+   */
   @Test
   public void jButton1ActionPerformed() {
     tr.jButton1ActionPerformed(null);
@@ -176,6 +237,12 @@ public class IntegrationTest {
     }
   }
 
+  /**
+   * Creates a mock of ticket
+   * and verifies that the behavior
+   * of initializing components
+   * is correct
+   */
   @Test
   public void initComponentsTest1() throws Exception {
     tr.initComponents();
@@ -191,6 +258,12 @@ public class IntegrationTest {
     }
   }
 
+  /**
+   * Creates a mock of ticket
+   * and verifies that the behavior
+   * of initializing components
+   * and autoID are correct
+   */
   @Test
   public void initComponentsTest2() {
     ticket ticket = mock(ticket.class);

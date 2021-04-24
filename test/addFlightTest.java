@@ -21,8 +21,13 @@ public class addFlightTest {
   String arrtime = "1PM";
   String flightcharge = "150";
 
+  /**
+   * Asserts that the correct ID
+   * is provided by autoID for
+   * the next user to be created
+   */
   @Test
-  public void autoIDTest() throws SQLException {
+  public void autoIDTest() {
     addfl.autoID();
     String currentID = addfl.txtflightid.toString();
     assertEquals(addfl.txtflightid.toString(), currentID);
@@ -30,6 +35,12 @@ public class addFlightTest {
 //    assertEquals("No suitable driver found for", exception.getMessage());
   }
 
+  /**
+   * Creates a mock of addflight
+   * and verifies that the behavior
+   * when initializing components
+   * is correct
+   */
   @Test
   public void initComponents() {
     addflight flight = new addflight();
@@ -46,7 +57,12 @@ public class addFlightTest {
     }
   }
 
-  // Makes sure that the user has entered data for each argument
+  /**
+   * Ensures that the user has
+   * entered data for each argument
+   * by asserting true when a field
+   * is missing
+   */
   @Test
   public void jButton1ActionPerformed() {
     assertFalse(addfl
@@ -66,8 +82,10 @@ public class addFlightTest {
     assertTrue(addfl.invalidEntry(id, flightname, source, depart, date, departtime, arrtime, ""));
   }
 
-  // NF04 Performance Test
-  // Test the db to see if it responds within 2 seconds
+  /**
+   * NF04 Performance Test
+   * Test the db to see if it responds within 2 seconds
+   */
   @Test
   public void dbTest() {
     addfl.txtflightid.setText("FLO001");
@@ -82,7 +100,10 @@ public class addFlightTest {
     assertTimeout(Duration.ofSeconds(2), () -> addfl.jButton1ActionPerformed(null));
   }
 
-  // Integration test for db and data input
+  /**
+   * Integration test for
+   * database and data input
+   */
   @Test
   public void dbInputIntegration() {
     // create Mock class
@@ -107,6 +128,10 @@ public class addFlightTest {
 
   }
 
+  /**
+   * Performance test integration
+   * for database and data input
+   */
   @Test
   public void dbInputIntegrationTiming() {
 

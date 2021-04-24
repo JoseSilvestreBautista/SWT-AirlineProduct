@@ -8,15 +8,26 @@ public class MainTest {
 
   Main main = new Main();
 
+  /**
+   * Asserts that main does
+   * not throw an exception
+   */
   @Test
-  public void Mainandjbutton1ExceptionTest() throws Exception {
+  public void Mainandjbutton1ExceptionTest() {
 
     assertDoesNotThrow(() -> Main.main(null));
 
   }
 
+  /**
+   * Creates a mock to handle main
+   * and verifies that jMenuItem1
+   * behaves correctly
+   * after jMenuItem1ActionPerformed
+   * is executed
+   */
   @Test
-  public void jMenuItem1ActionPerformed() throws Exception {
+  public void jMenuItem1ActionPerformed() {
     main.initComponents();
     main.jMenuItem1ActionPerformed(null);
     Main main = Mockito.mock(Main.class);
@@ -31,9 +42,16 @@ public class MainTest {
     }
   }
 
-  @Test
 
-  public void jMenuItem2ActionPerformed() throws Exception {
+  /**
+   * Creates a mock to handle main
+   * and verifies that jMenuItem1
+   * behaves correctly
+   * after jMenuItem2ActionPerformed
+   * is executed
+   */
+  @Test
+  public void jMenuItem2ActionPerformed() {
     main.jMenuItem2ActionPerformed(null);
     Main main = Mockito.mock(Main.class);
 
@@ -47,8 +65,15 @@ public class MainTest {
     }
   }
 
+  /**
+   * Creates a mock to handle main
+   * and verifies that jMenuItem1
+   * behaves correctly
+   * after jMenuItem3ctionPerformed
+   * is executed
+   */
   @Test
-  public void jMenuItem3ActionPerformed() throws Exception {
+  public void jMenuItem3ActionPerformed() {
     main.jMenuItem3ActionPerformed(null);
     Main main = Mockito.mock(Main.class);
 
@@ -62,8 +87,15 @@ public class MainTest {
     }
   }
 
+  /**
+   * Creates a mock to handle main
+   * and verifies that jMenuItem1
+   * behaves correctly
+   * after jMenuItem4ActionPerformed
+   * is executed
+   */
   @Test
-  public void jMenuItem4ActionPerformed() throws Exception {
+  public void jMenuItem4ActionPerformed() {
     main.jMenuItem4ActionPerformed(null);
     Main main = Mockito.mock(Main.class);
 
@@ -77,8 +109,15 @@ public class MainTest {
     }
   }
 
+  /**
+   * Creates a mock to handle main
+   * and verifies that jMenuItem1
+   * behaves correctly
+   * after jMenuItem5ActionPerformed
+   * is executed
+   */
   @Test
-  public void jMenuItem5ActionPerformed() throws Exception {
+  public void jMenuItem5ActionPerformed() {
     main.jMenuItem5ActionPerformed(null);
     Main main = Mockito.mock(Main.class);
 
@@ -92,8 +131,15 @@ public class MainTest {
     }
   }
 
+  /**
+   * Creates a mock to handle main
+   * and verifies that jMenuItem1
+   * behaves correctly
+   * after jMenuItem6ActionPerformed
+   * is executed
+   */
   @Test
-  public void jMenuItem6ActionPerformed() throws Exception {
+  public void jMenuItem6ActionPerformed() {
     main.jMenuItem6ActionPerformed(null);
     Main main = Mockito.mock(Main.class);
 

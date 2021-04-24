@@ -8,6 +8,10 @@ public class GUI_Test
 {
   private FrameFixture window;
 
+  /**
+   * Sets up the testing window
+   * before automatic testing begins
+   */
   @Before
   public void setup() {
     Main frame = GuiActionRunner.execute(() -> new Main());
@@ -16,6 +20,10 @@ public class GUI_Test
 
   }
 
+  /**
+   * Automatically tests searchCustomer
+   * with the given static data
+   */
   @Test
   public void searchCustomerTest() {
     window.menuItem("jMenu1").click();
@@ -24,6 +32,10 @@ public class GUI_Test
     window.button("jButton4").click();
   }
 
+  /**
+   * Automatically tests addCustomer
+   * with the given static data
+   */
   @Test
   public void addCustomerTest() {
     window.menuItem("jMenu1").click();
@@ -38,6 +50,10 @@ public class GUI_Test
     window.textBox("txtcontact").enterText("12345");
   }
 
+  /**
+   * Automatically tests bookTicket
+   * with the given static data
+   */
   @Test
   public void bookTicketTest() {
     window.menuItem("jMenu2").click();
@@ -53,12 +69,19 @@ public class GUI_Test
 
   }
 
+  /**
+   * Automatically tests ticketReport
+   */
   @Test
   public void ticketReportTest() {
     window.menuItem("jMenu2").click();
     window.menuItem("ticketReport").click();
   }
 
+  /**
+   * Automatically tests addflight
+   * with the given static data
+   */
   @Test
   public void addFlightTest() {
     window.menuItem("jMenu3").click();
@@ -73,7 +96,10 @@ public class GUI_Test
     window.button("addBtn");
   }
 
-
+  /**
+   * Automatically tests user creation
+   * with the given static data
+   */
   @Test
   public void userCreationTest() {
     window.menuItem("jMenu4").click();
@@ -85,7 +111,9 @@ public class GUI_Test
     window.button("addBtn").click();
   }
 
-
+  /**
+   * Clears data in window after tests
+   */
   @After
   public void cleanUp(){
     window.cleanUp();

@@ -18,6 +18,10 @@ public class searchCustomerTest {
   private JLabel txtPhoto;
 
 
+  /**
+   * Sets up database before each test
+   * @throws SQLException - in case database connection fails
+   */
   @BeforeEach
   public void setupDB() throws SQLException {
     customerfName = sc.searchExistingUsers();
@@ -25,19 +29,26 @@ public class searchCustomerTest {
     txtPhoto.setSize(100, 100);
   }
 
-  //Method jButton4ActionPerformed
+  /**
+   * Asserts that jButton4 returns false
+   * when checking for an existing user
+   */
   @Test
   public void jButton4ActionPerformedPositive() {
     sc.txtfirstname.setText("CS001");
     System.out.print(customerfName);
-    Assertions.assertEquals(false, sc.jButton4ActionPerformed(null));
+    Assertions.assertFalse(sc.jButton4ActionPerformed(null));
   }
 
-  //Method jButton1ActionPerformed
+  /**
+   * Asserts that the user was
+   * able to choose an image
+   * successfully
+   */
   @Test
   public void jButton1ActionPerformedPositive() {
 
-    Assertions.assertEquals(true, sc.jButton1ActionPerformed(null));
+    Assertions.assertTrue(sc.jButton1ActionPerformed(null));
   }
 
   @ParameterizedTest
@@ -47,6 +58,10 @@ public class searchCustomerTest {
     Assertions.assertEquals(false, sc.jButton4ActionPerformed(null));
   }
 
+  /**
+   * Asserts that customer information update
+   * fails with the provided static information
+   */
   @Test
   public void jButton2ActionPerformed() {
     sc.txtfirstname.setText("test");
@@ -69,18 +84,23 @@ public class searchCustomerTest {
   public void testSearchTime() {
   }
 
-    // NF02 Performance Test
-    // Test the db to see if it responds within 1 second
-    @Test
-    void jButton4ActionPerformedTest() {
-        Assertions.assertTimeout(Duration.ofSeconds(1), () -> sc.searchExistingUsers());
-    }
+  /**
+   * NF02 Performance Test
+   *
+   *  Test the db to see if it responds within 1 second
+   */
+  @Test
+  void jButton4ActionPerformedTest() {
+      Assertions.assertTimeout(Duration.ofSeconds(1), () -> sc.searchExistingUsers());
+  }
+
   @Test
   public void searchExistingUsers() {
   }
 
   /**
-   * Asserts that the
+   * Asserts that customer information update
+   * fails with the provided static information
    */
   @Test
   public void jButton4ActionPerformedNegative() {

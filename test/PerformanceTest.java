@@ -11,6 +11,11 @@ import org.mockito.Mockito;
 
         Login log = new Login();
 
+        /**
+         * Creates a mock to test ticket
+         * Verifies that ticket initialization
+         * and autoID behave correctly
+         */
         @Test
         public void initComponentsTest() {
             ticket ticket = mock(ticket.class);
@@ -28,8 +33,12 @@ import org.mockito.Mockito;
             }
         }
 
+        /**
+         * Asserts that login completes within
+         * 2 seconds of pressing jButton1
+         */
         @Test
-        public void Test6() throws Exception {
+        public void Test6() {
             log.txtuser.setText("john");
             log.txtpass.setText("123");
             assertTimeout(Duration.ofSeconds(2), () -> log.jButton1ActionPerformed(null));
