@@ -129,6 +129,6 @@ public class searchCustomerTest {
    */
   @Test
   public void jButton4ActionPerformanceTest() {
-    Assertions.assertTimeout(Duration.ofSeconds(1), () -> sc.jButton4ActionPerformed(null));
+    Assertions.assertTimeout(Duration.ofSeconds(5), () -> sc.jButton4ActionPerformed(null));
   }
 }
