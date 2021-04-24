@@ -8,12 +8,20 @@ public class ticketreportTest {
 
   ticketreport tr = new ticketreport();
 
-
+  /**
+   * Asserts that ticketreport.LoadData()
+   * does not throw an exception
+   */
   @Test
   public void loadData() {
     assertDoesNotThrow(() -> tr.LoadData());
   }
 
+  /**
+   * Creates a mock of ticketreport and
+   * verifies that the correct behavior occurs
+   * when jButton1 is pressed
+   */
   @Test
   public void jButton1ActionPerformed() {
     tr.jButton1ActionPerformed(null);
@@ -29,8 +37,13 @@ public class ticketreportTest {
     }
   }
 
+  /**
+   * Creates a mock of ticketreport and
+   * verifies that the correct behavior occurs
+   * when it's initialized
+   */
   @Test
-  public void initComponents() throws Exception {
+  public void initComponents() {
     tr.initComponents();
     ticketreport ticketR = Mockito.mock(ticketreport.class);
 
@@ -44,8 +57,11 @@ public class ticketreportTest {
     }
   }
 
+  /**
+   * Asserts that jButton1 text is set correctly after it's initialized
+   */
   @Test
-  public void jbutton1() throws Exception {
+  public void jbutton1() {
     tr.initComponents();
     assertEquals("Cancel", tr.jButton1.getText());
   }

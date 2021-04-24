@@ -79,6 +79,9 @@ public class searchCustomerTest {
   public void searchExistingUsers() {
   }
 
+  /**
+   * Asserts that the
+   */
   @Test
   public void jButton4ActionPerformedNegative() {
     sc.txtfirstname.setText("test");
@@ -97,9 +100,13 @@ public class searchCustomerTest {
     //initialize the jButton1ActionPerformedTest test Image
     sc.jButton4ActionPerformed(null);
 
-    //Assertions.assertEquals(false, sc.jButton2ActionPerformed(null));
+    // assertFalse(sc.jButton2ActionPerformed(null));
   }
 
+  /**
+   * Asserts that the correct information
+   * is retrieved from the database
+   */
   @Test
   public void jButton4ActionPerformedExceptionTest() {
     sc.txtcustid.setText("cs002");
@@ -115,8 +122,11 @@ public class searchCustomerTest {
 
   }
 
-  // NF02 Performance Test
-  // Test the db to see if it responds within 1 second
+  /**
+   * NF02 Performance Test
+   * asserts that the database
+   * responds within 1 second
+   */
   @Test
   public void jButton4ActionPerformanceTest() {
     Assertions.assertTimeout(Duration.ofSeconds(1), () -> sc.jButton4ActionPerformed(null));
